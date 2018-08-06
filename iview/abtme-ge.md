@@ -86,6 +86,15 @@ As I told you earlier, I always beleieve in "customer first" -- other things nex
 
 ------------
 
+Apart from all these skills,
+Last 1 and half month, I have been handling this role what i applied for.
+I have been working as a UI Lead, in the same postion Extensibility - under the same manager (Shiv kumar krishnan)
+
+Hope you got that...
+
+------------
+
+
 
 
 - In my previous company Cisco,
