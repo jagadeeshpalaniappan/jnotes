@@ -113,4 +113,4 @@ All these activities motivates me to learn and keep up-to-date with latest techn
 - Not just a **Back-End** (**Node.js**) or (**Java -Spring** MVC) developer
 - ***Union Full-Stack Developer***
 - who can develop end-to-end software web applications
-- having strong passion towards ‘Learning’ and 'Customer Focused' which makes me win all the time.
+- having strong passion towards ‘Learning’ and 'Customer Focused' as a keypoint which makes me win all the time.
