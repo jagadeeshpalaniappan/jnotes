@@ -60,11 +60,31 @@ Apart from my daily work, I always go out of the box and think, innovate new ide
 - which means you can speak (Alexa) to control your web application
     - with your own natural language
     
-- And I won, GE Award for that "Learn and Adapt To Win"
+- And I won, GE Award for that "Learn and Adapt To Win" from GE director Shivkumar Krishnanan.
+
 ````
 
+Apart from this award, I also won many other awards.
+
+1. Customers Determine Our Success --Award
+    - there was a requirement from customer which is highly wanted
+    - which has been scheduled for Q1 RELEASE
+    - I always beleive in, "customer first" and other things are next
+    - I quickly completed my Q1 deliverables and delivered the customer wanted Q2 feature in Q1 RELEASE itself
 
 
+I also received another,
+
+2. Customers Determine Our Success --Award
+    - for
+    - troubleshooting and fix the Rasgas (one of our core customer) 
+    - fixed the issues very quickly by steching my weekend holidays 
+    - As a result 'Customers' were happy with the real quick fix
+
+
+As I told you earlier, I always beleieve in "customer first" -- other things next priciple
+
+------------
 
 
 
@@ -93,4 +113,4 @@ All these activities motivates me to learn and keep up-to-date with latest techn
 - Not just a **Back-End** (**Node.js**) or (**Java -Spring** MVC) developer
 - ***Union Full-Stack Developer***
 - who can develop end-to-end software web applications
-- having strong passion towards ‘Learning’ which makes me win all the time.
+- having strong passion towards ‘Learning’ and 'Customer Focused' which makes me win all the time.
