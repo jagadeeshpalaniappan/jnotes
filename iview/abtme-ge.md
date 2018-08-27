@@ -30,7 +30,7 @@
 
 ````js
 - developing 'Single Page Application' (SPA) using 'Angular.js' and 'Angular' Framework
-- developing 'Fully Re-Usable' custom 'Web Components' using 'Polymer' and 'Angular' Frameworks
+- developing 'Fully Re-Usable' custom 'Web Components' using 'Polymer'
 - developing all this by keeping 'Responsive Web Design' (RWD) in mind
 ````
 
