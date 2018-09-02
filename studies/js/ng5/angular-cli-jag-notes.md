@@ -1,19 +1,14 @@
-
-
 # Angular CLI
 
-```Angular CLI``` helps with:
+`Angular CLI` helps with:
 
-1. Bootstrapping (or Initializing or Generating) a new project
+1. Bootstrapping \(or Initializing or Generating\) a new project
 2. Serving and live reloading
 3. Code generation
 4. Building, Packaging and releasing
 5. Testing
 
-
-
-
-```ts
+```typescript
 // Instalation
 npm install -g @angular/cli
 ng -v
@@ -166,56 +161,24 @@ npm install @types/moment --save
 
 // Install (need not to save)
 npm install bootstrap@next
-// Add them in ```angular-cli.json```
+// Add them in ```angular-cli.json
+```
 
-{
-  .
-  .
-  .
-  "apps": [
-    {
-      .
-      .
-      .
-      "styles": [
-        "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.css"
-      ],
-      "scripts": [
-        "../node_modules/jquery/dist/jquery.js",
-        "../node_modules/tether/dist/js/tether.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.js"
-      ],
-      .
-      .
-      .
-    }
-  ],
-  .
-  .
-  .
-}
+{ . . . "apps": \[ { . . . "styles": \[ "styles.css", "../node\_modules/bootstrap/dist/css/bootstrap.css" \], "scripts": \[ "../node\_modules/jquery/dist/jquery.js", "../node\_modules/tether/dist/js/tether.js", "../node\_modules/bootstrap/dist/js/bootstrap.js" \], . . . } \], . . . }
 
 // Now when the build runs the CLI includes those files in the bundle and injects then in the global scope.
 
+// **\*** 5. Testing **\***
 
-//  ***** 5. Testing *****
+// jasmine unit tests // - Whenever we generate Angular code, CLI also creates test files`.spec.ts`
 
-// jasmine unit tests 
-// - Whenever we generate Angular code, CLI also creates test files```.spec.ts``` 
+// run all our unit tests with one command ng test
 
-// run all our unit tests with one command
-ng test
+/\* This builds our project and then runs all the tests, any errors are output to the terminal.
 
-/*
-This builds our project and then runs all the tests, any errors are output to the terminal.
+This command also watches for any changes in our files and, if it detects any, re-runs the tests automatically. \*/
 
-This command also watches for any changes in our files and, if it detects any, re-runs the tests automatically.
-*/
-
-```
-
-
+```text
 ```js
 // ng help
 
@@ -231,7 +194,7 @@ ng serve <options...>
 ng test <options...>
   Run unit tests in existing project.
   aliases: t
-  
+
 ng build <options...>
   Builds your app and places it into the output path (dist/ by default).
   aliases: b
@@ -252,7 +215,7 @@ ng set <options...>
 
 ng e2e <options...>
   Run e2e tests in existing project.
-  
+
 
 ng completion <options...>
   Adds autocomplete functionality to `ng` commands and subcommands.
@@ -277,19 +240,14 @@ ng xi18n <options...>
 
 ng help <command-name (Default: all)>
   Shows help for the CLI.
-
 ```
 
-
-
-
-
-```ts
+```typescript
 @Component({
   selector: 'my-component',
   templateUrl: 'my-component-component.html',
   styleUrls: [
-  	'my-component-component.css'
+      'my-component-component.css'
   ]
 })
 class MyComponent {
@@ -297,9 +255,7 @@ class MyComponent {
 }
 ```
 
-
-
-```ts
+```typescript
 @Component({
   selector: 'my-component',
   template: `
@@ -314,12 +270,7 @@ class MyComponent {
   ]
 })
 class MyComponent {
-    
+
 }
 ```
-
-
-
-
-
 
