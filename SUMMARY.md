@@ -21,6 +21,11 @@
     * [css](docs/ui/css/README.md)
       * [1](docs/ui/css/1.md)
     * [js](docs/ui/js/README.md)
-      * [Java Script - Tricks](docs/ui/js/1.md)
+      * [1. JavaScript - Tricky Qstns](docs/ui/js/1.md)
+      * [2. JavaScript Concepts](docs/ui/js/2.-javascript-concepts.md)
   * [index](docs/index.md)
+
+## concepts
+
+* [jconcept1](concepts/jconcept1.md)
 
