@@ -27,5 +27,6 @@
 
 ## JavaScript Concepts
 
-* [1. Event 'Bubbling' vs 'Capturing' vs 'Delegation'](concepts/jconcept1.md)
+* [1. Event 'Bubbling' vs 'Capturing' vs 'Delegation'](ui-js-concepts/1.md)
+* [2](ui-js-concepts/2.md)
 
