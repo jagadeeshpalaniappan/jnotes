@@ -25,13 +25,15 @@
       * [2. JavaScript Concepts](docs/ui/js/2.-javascript-concepts.md)
   * [index](docs/index.md)
 
-## JavaScript Concepts
+## JavaScript
 
-* [1. Event 'Bubbling' vs 'Capturing' vs 'Delegation'](ui-js-concepts/1.md)
-* [2](ui-js-concepts/2.md)
-* [todo](ui-js-concepts/todo.md)
-
-## JavaScript Interview Questions
-
-* [1](js-interview-qstns/1.md)
+* [JavaScript Concepts](js/concepts/README.md)
+  * [1. Event 'Bubbling' vs 'Capturing' vs 'Delegation'](js/concepts/1.md)
+  * [2. Promise](js/concepts/2.md)
+  * [3. Closure](js/concepts/3.md)
+  * [4. Prototypal Inheritance](js/concepts/4.md)
+  * [todo](js/concepts/todo.md)
+* [JavaScript Interview Qstns](js/qstns/README.md)
+  * [1](js/qstns/1.md)
+  * [todo](js/qstns/todo.md)
 
