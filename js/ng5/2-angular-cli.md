@@ -1,4 +1,4 @@
-# Angular CLI
+# 2. Angular CLI
 
 `Angular CLI` helps with:
 

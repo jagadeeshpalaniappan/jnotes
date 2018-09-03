@@ -1,4 +1,4 @@
-# TypeScript -jag notes
+# 1. TypeScript First
 
 ## TypeScript Compiler
 

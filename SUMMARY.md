@@ -9,8 +9,6 @@
     * [ng5](studies/js/ng5/README.md)
       * [Angular CLI](studies/js/ng5/angular-cli-jag-notes.md)
       * [TypeScript -jag notes](studies/js/ng5/ts-jag-notes.md)
-      * [TypeScript -jag notes](studies/js/ng5/1-typescript.md)
-      * [Angular CLI](studies/js/ng5/2-angular-cli.md)
   * [README](studies/ds/README.md)
     * [regex](studies/ds/regex.md)
 * [iview](iview/README.md)
@@ -36,4 +34,7 @@
 * [JavaScript Interview Qstns](js/qstns/README.md)
   * [1](js/qstns/1.md)
   * [todo](js/qstns/todo.md)
+* [Angular5](js/ng5/README.md)
+  * [1. TypeScript First](js/ng5/1-ts.md)
+  * [2. Angular CLI](js/ng5/2-angular-cli.md)
 
