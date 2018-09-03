@@ -31,3 +31,7 @@
 * [2](ui-js-concepts/2.md)
 * [todo](ui-js-concepts/todo.md)
 
+## JavaScript Interview Questions
+
+* [1](js-interview-qstns/1.md)
+
