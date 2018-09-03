@@ -25,7 +25,7 @@
       * [2. JavaScript Concepts](docs/ui/js/2.-javascript-concepts.md)
   * [index](docs/index.md)
 
-## concepts
+## JavaScript Concepts
 
-* [jconcept1](concepts/jconcept1.md)
+* [1. Event 'Bubbling' vs 'Capturing' vs 'Delegation'](concepts/jconcept1.md)
 
