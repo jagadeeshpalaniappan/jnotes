@@ -34,7 +34,15 @@
 * [JavaScript Interview Qstns](js/qstns/README.md)
   * [1](js/qstns/1.md)
   * [todo](js/qstns/todo.md)
-* [Angular5](js/ng5/README.md)
-  * [1. TypeScript First](js/ng5/1-ts.md)
-  * [2. Angular CLI](js/ng5/2-angular-cli.md)
+* [Angular.js](js/angularjs.md)
+* [Angular](js/angular/README.md)
+  * [1. TypeScript First](js/angular/1-ts.md)
+  * [2. Angular CLI](js/angular/2-angular-cli.md)
+
+## CSS
+
+* [CSS Concepts](css/concepts/README.md)
+  * [todo](css/concepts/todo.md)
+* [CSS Interview Qstns](css/qstns/README.md)
+  * [todo](css/qstns/todo.md)
 
