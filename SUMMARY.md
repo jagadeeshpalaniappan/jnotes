@@ -25,23 +25,25 @@
 
 ## JavaScript
 
-* [JavaScript Concepts](js/concepts/README.md)
-  * [1. Event 'Bubbling' vs 'Capturing' vs 'Delegation'](js/concepts/1.md)
-  * [2. Promise](js/concepts/2.md)
-  * [3. Closure](js/concepts/3.md)
-  * [4. Prototypal Inheritance](js/concepts/4.md)
-  * [todo](js/concepts/todo.md)
-* [JavaScript Interview Qstns](js/qstns/README.md)
-  * [1](js/qstns/1.md)
-  * [todo](js/qstns/todo.md)
-* [Angular.js](js/angularjs.md)
-* [Angular](js/angular/README.md)
-  * [1. TypeScript First](js/angular/1-ts.md)
-  * [2. Angular CLI](js/angular/2-angular-cli.md)
+* [JavaScript Concepts](javascript/concepts/README.md)
+  * [1. Event 'Bubbling' vs 'Capturing' vs 'Delegation'](javascript/concepts/1.md)
+  * [2. Promise](javascript/concepts/2.md)
+  * [3. Closure](javascript/concepts/3.md)
+  * [4. Prototypal Inheritance](javascript/concepts/4.md)
+  * [todo](javascript/concepts/todo.md)
+* [JavaScript Interview Qstns](javascript/qstns/README.md)
+  * [1](javascript/qstns/1.md)
+  * [todo](javascript/qstns/todo.md)
+* [Angular.js](javascript/angularjs.md)
+* [Angular](javascript/angular/README.md)
+  * [1. TypeScript First](javascript/angular/1-ts.md)
+  * [2. Angular CLI](javascript/angular/2-angular-cli.md)
 
 ## CSS
 
 * [CSS Concepts](css/concepts/README.md)
+  * [1. CSS Box Model](css/concepts/1.md)
+  * [2. CSS Specificity](css/concepts/2.md)
   * [todo](css/concepts/todo.md)
 * [CSS Interview Qstns](css/qstns/README.md)
   * [todo](css/qstns/todo.md)
