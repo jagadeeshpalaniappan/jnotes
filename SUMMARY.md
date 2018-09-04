@@ -57,4 +57,5 @@
 * [CSS Interview Qstns](css/qstns/README.md)
   * [1](css/qstns/1.md)
   * [todo](css/qstns/todo.md)
+  * [2](css/qstns/2.md)
 
