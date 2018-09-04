@@ -17,8 +17,6 @@ The `closest()` method provides a way around this issue. It looks for the closes
 
 
 
-## ProtoType Inheritance:
-
 
 
 
