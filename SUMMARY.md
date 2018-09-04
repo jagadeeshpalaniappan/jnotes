@@ -35,6 +35,7 @@
     * [1. let vs const vs var](javascript/concepts/6/1.md)
     * [2. Arrow Fns](javascript/concepts/6/2.md)
     * [3. Tagged Template Literals](javascript/concepts/6/3.md)
+    * [4. Iterator & Generator](javascript/concepts/6/4.md)
   * [todo](javascript/concepts/todo.md)
 * [JavaScript Interview Qstns](javascript/qstns/README.md)
   * [todo](javascript/qstns/todo.md)
