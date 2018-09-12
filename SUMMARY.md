@@ -37,6 +37,8 @@
     * [3. Tagged Template Literals](javascript/concepts/6/3.md)
     * [4. Iterator & Generator](javascript/concepts/6/4.md)
   * [todo](javascript/concepts/todo.md)
+  * [7. Debounce vs Throttle](javascript/concepts/7.-debounce-vs-throttle.md)
+  * [8. Infinite Scroll](javascript/concepts/8.-infinite-scroll.md)
 * [JavaScript Interview Qstns](javascript/qstns/README.md)
   * [todo](javascript/qstns/todo.md)
   * [1](javascript/qstns/1.md)
