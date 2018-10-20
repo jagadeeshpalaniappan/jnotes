@@ -25,7 +25,7 @@ var fun = function lang(l) {
 ```
 
 
-```javascript{12-13,15}
+```javascript
 class Square extends React.Component {
   constructor(props) {
     super(props);
