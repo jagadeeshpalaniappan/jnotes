@@ -1,0 +1,6 @@
+h1 {border-style: double; color: red;}
+h2 {border-bottom-style: solid; color: blue;}
+
+p span {
+  color: green;
+}

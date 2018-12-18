@@ -1,53 +1,51 @@
-
 # TypeScript -jag notes
-  
-
 
 ## TypeScript Compiler
 
-``` 
+```text
 npm install -g typescript
 
 tsc –v
 
 tsc hello.ts
-``` 
+```
 
-``` 
+```text
 node hello.js
-``` 
-
+```
 
 Watch changes in the ts file:
-``` 
-tsc -w hello.ts
-``` 
 
-Inline Configuration (-t target)
-``` 
+```text
+tsc -w hello.ts
+```
+
+Inline Configuration \(-t target\)
+
+```text
 tsc -t ES6 -w hello.ts
-``` 
+```
 
 However if we are want to watch a whole directory we need to use a configuration file.
 
-Create a TS configuration file (tsconfig.json)
-``` 
-tsc —init
-``` 
+Create a TS configuration file \(tsconfig.json\)
 
+```text
+tsc —init
+```
 
 It watches the entire directory and coverts TS into JS
-``` 
-tsc -w
-``` 
 
+```text
+tsc -w
+```
 
 ## let
 
-
 ### Global Block Scope
 
-##### In Other Languages
+#### In Other Languages
+
 ```typescript
 {
     // This is a block
@@ -56,7 +54,8 @@ tsc -w
 // This is not part a block
 ```
 
-##### In JavaScript
+#### In JavaScript
+
 ```typescript
 {
   var a = "block";
@@ -65,6 +64,7 @@ console.log(a);   // block  (it works in JavaScript)
 ```
 
 ### Function Block Scope
+
 ```typescript
 function hello() {
     var a = "function";
@@ -89,15 +89,13 @@ function hello() {
     // becuase for(..) {... block level scope....}
 }
 hello();
-
 ```
 
 Common Work Around / Solution for this is,
 
-## IIFE (Immediately Invoked Fn Expression)
+## IIFE \(Immediately Invoked Fn Expression\)
 
 ```typescript
-
 function hello() {
     var a = "function";
 
@@ -112,6 +110,7 @@ hello();
 ```
 
 In this,
+
 ```typescript
 (function() {
     var a = "block";
@@ -119,6 +118,7 @@ In this,
 ```
 
 is equal to,
+
 ```typescript
 function something() {
   var a = "block";
@@ -126,10 +126,9 @@ function something() {
 something();
 ```
 
- - It’s a function that we call immediately after defining it.
- - Since functions have their own scope, using an IIFE has the same effect
- - the variable a inside the IIFE isn’t visible outside the IIFE.
-
+* It’s a function that we call immediately after defining it.
+* Since functions have their own scope, using an IIFE has the same effect
+* the variable a inside the IIFE isn’t visible outside the IIFE.
 
 Most Common Mistake
 
@@ -154,6 +153,7 @@ funcs.forEach(function (func) {
 What gets printed out?
 
 You might expect
+
 ```typescript
 0
 1
@@ -161,7 +161,9 @@ You might expect
 3
 4
 ```
+
 But the answer is,
+
 ```typescript
 4
 4
@@ -169,28 +171,28 @@ But the answer is,
 4
 4
 ```
--   The reason for this is that the variable y is not block level, 
--   it doesn’t only exist inside its enclosing {} 
--   In fact it’s a <mark>global variable</mark> and by the time any of the functions are called it’s already been set to 4.
--   It is equal to 
 
-    ```typescript
-    var funcs = [];
-    var y;
-    for (var i = 0; i < 5; i ++) {
-        y = i;
-        funcs.push(function () {
-            console.log(y);
-        })
-    }
-    funcs.forEach(function (func) {
-        func()
-    });
-    ```
+* The reason for this is that the variable y is not block level, 
+* it doesn’t only exist inside its enclosing {} 
+* In fact it’s a global variable and by the time any of the functions are called it’s already been set to 4.
+* It is equal to
 
+  ```typescript
+  var funcs = [];
+  var y;
+  for (var i = 0; i < 5; i ++) {
+      y = i;
+      funcs.push(function () {
+          console.log(y);
+      })
+  }
+  funcs.forEach(function (func) {
+      func()
+  });
+  ```
 
-In the above example,
-if we replace <mark>var y = i</mark> with <mark>let y = i</mark> then the variable y only exists inside it’s block
+In the above example, if we replace var y = i with let y = i then the variable y only exists inside it’s block
+
 ```typescript
 var funcs = [];
 for (var i = 0; i < 5; i ++) {
@@ -206,6 +208,7 @@ funcs.forEach(function (func) {
     func()
 });
 ```
+
 And so executing this now results in:
 
 ```typescript
@@ -229,6 +232,7 @@ funcs.forEach(function (func) {
     func()
 });
 ```
+
 ```typescript
 0
 1
@@ -237,28 +241,21 @@ funcs.forEach(function (func) {
 4
 ```
 
-
 Even though let i = 0 is strictly declared outside of the for block { }, any variables declared in the for loop expression with let has block level scope in the for loop.
 
+**Summary**
 
-###### Summary
-```let``` is a very important addition the javascript language in ES6.
-- It’s not a replacement to var
-- var can still be used even in ES6 and has the same semantics as ES5.
-- It is recommended to use ```let``` instead of ```var``` (unless, any specific reason)
+`let` is a very important addition the javascript language in ES6.
 
-
----
+* It’s not a replacement to var
+* var can still be used even in ES6 and has the same semantics as ES5.
+* It is recommended to use `let` instead of `var` \(unless, any specific reason\)
 
 ## const
 
-```let``` and ```var```
-1. Value can be initalized anytime
-2. It is **Mutable**
-3. It is **Block Scoping**
+`let` and `var` 1. Value can be initalized anytime 2. It is **Mutable** 3. It is **Block Scoping**
 
-
-```cons```
+```text
 1. It must be immediately initialised with a value
 2. It is **Immutable** (can’t be changed afterwards)
 3. It is **Block Scoping**
@@ -313,13 +310,7 @@ function func() {
 func();
 ```
 
-
----
-
 ## Template Strings
-
-
-
 
 ```typescript
 // All are same
@@ -351,29 +342,27 @@ name
 is
 ${myName}`;
 console.log(multiLineString3);
-
 ```
 
 Fat Arrow Functions
 
-
 ## Fat Arrow Functions
 
 Javascript has **First Class Function**
-- Means: In JavaScript functions can be themselves be passed around like any other value, even as arguments to other functions.
+
+* Means: In JavaScript functions can be themselves be passed around like any other value, even as arguments to other functions.
 
 ```typescript
-
 // *** 1. First Class Function ***
 // E.g. we can pass a fn as param to the setTimeout function
 var myFn = function() {
-	console.log("setTimeout called!");
+    console.log("setTimeout called!");
 };
 setTimeout(myFn, 1000);
 
 // Passed Annonymous Fn
 setTimeout(function() {
-	console.log("setTimeout called!");
+    console.log("setTimeout called!");
 }, 1000);
 
 
@@ -390,7 +379,7 @@ setTimeout(() => console.log("setTimeout called!"), 1000);
 
 // With Params:
 let add = function(a,b) {
-	return a + b;
+    return a + b;
 };
 
 // if it has only one expression, that stmnt result automatically returned
@@ -401,13 +390,13 @@ let add = (a,b) => a + b;
 // *** 2. 'this' Usage ***
 
 let obj1 = {
-	name: 'Jagadeesh',
-	sayLater: function() {
+    name: 'Jagadeesh',
+    sayLater: function() {
 
         // value of 'this' is based on the calling context 
         // in this case it is 'obj1'
-		console.log(this.name);
-	}
+        console.log(this.name);
+    }
 };
 obj.sayLater(); // Jagadeesh
 
@@ -446,7 +435,7 @@ Reason: the value of 'this' in a function depends on how the function is called
 let obj1 = {
     name: 'Jagadeesh',
     sayLater: function () {
-        
+
         // Assign 'obj1' to 'self'
         let self = this; 
         console.log(self);
@@ -471,7 +460,7 @@ let obj = {
 
         // `this` points to obj
         console.log(this); 
-        
+
         // Using 'fat arrow' syntax
         setTimeout(() => {
             // `this` points to obj
@@ -481,18 +470,13 @@ let obj = {
     }
 };
 obj.sayLater();
-
 ```
-
 
 ## Destructuring
 
 Destructuring is a way of extracting values into variables from data stored in objects and arrays.
 
-
-
 ```typescript
-
 // *** 1. Object Destructuring ***
 
 // Let’s imagine we have an object :
@@ -558,18 +542,13 @@ f({}); // 0
 // Destructuring is a useful feature of ES6, 
 // - with it we can extract values from objects and arrays with ease.
 // - easy way to provide optional parameters , with default values
-
 ```
-
-
 
 ## For Of
 
 ....
 
-
 ```typescript
-
 // *** 1. For & ForEach (Array Iteration) ***
 
 // In ES5 javascript,
@@ -646,11 +625,7 @@ for (var value of array) {
     -It also works on most array-like objects
     -including the new Set and Map types
 */
-
-
 ```
-
-
 
 ## Map & Set
 
@@ -883,20 +858,16 @@ for (let entry of set) {
 // APPLE
 // ORANGE
 // MANGO
-
 ```
-
 
 ## Promises
 
 ....
 
-
 ```typescript
-
 // *** 1. via callbacks ***
 // - In ES5 (Asynchronous flow has been handled -via callbacks)
- 
+
 function doAsyncTask(cb) {
   setTimeout(() => {
     console.log("Async Task Calling Callback");
@@ -905,7 +876,7 @@ function doAsyncTask(cb) {
 }
 
 doAsyncTask(() => console.log("Callback Called"));
- 
+
 
 // *** 2. via callbacks ***
 // - In ES6 (Asynchronous flow has been handled -via inbuild Promise API)
@@ -921,7 +892,7 @@ promise.then(
 let error = false;
 function doAsyncTask() {
   return new Promise((resolve, reject) => {
-    
+
     setTimeout(() => {
 
       if (error) {
@@ -999,17 +970,13 @@ Promise.resolve('done')
     .then((val) => { throw new Error("fail") })
     .then((val) => console.log(val))
     .catch((err) => console.error(err));
-
-
 ```
-
 
 ## Class & Interface
 
 ....
 
 ```typescript
-
 // *** 1. Object Orientation in JavaScript ***
 
 /*
@@ -1086,13 +1053,9 @@ var Person = (function () {
 // Person class instance
 var asim = new Person("Asim", "Hussain");
 asim.whoAreYou(); // "Hi i'm Asim Hussain"
-
-
 ```
 
-
 ```typescript
-
 // *** 2. Inheritance ***
 /*
 - A class can inherit from another class. 
@@ -1111,7 +1074,7 @@ class Student extends Person {
     }
 
     // We can override member functions of the parent class with our own versions
-    whoAreYou() { 	
+    whoAreYou() {     
         // 'super' refers to the parent instance
         return `${super.whoAreYou()} and i'm studying ${this.course}`; 
     }
@@ -1188,11 +1151,9 @@ console.log(asim.whoAreYou());
 
 // ----------------------------------- / ES6 (es6 is over) ----------------------------------------------
 // Everything we have learned so far about classes is pure ES6 JavaScript.
-
 ```
 
 ```typescript
-
 // *** 3. Access Modifiers (TypeScript Only) ***
 
 /*
@@ -1328,27 +1289,22 @@ error TS2420: Class 'Person' incorrectly implements interface 'Human'. Property 
 interface Human {
     firstName: string;
     lastName: string;
-	name?: Function;
-	isLate?(time: Date): Function;
+    name?: Function;
+    isLate?(time: Date): Function;
 }
-
-
 ```
-
 
 ## Decorators
 
 ....
 
-
 ```typescript
-
 // *** 1. Decorators (TypeScript Only) (might be available in ES7) ***
 
 // E.g.
 @Component({
-	selector: "thingy",
-	template: `foo`
+    selector: "thingy",
+    template: `foo`
 })
 class MyComponent {
 }
@@ -1432,17 +1388,13 @@ Nice Reference:
 https://github.com/jayphelps/core-decorators.js
 
 */
-
 ```
-
 
 ## Modules
 
 ....
 
-
 ```typescript
-
 // *** 1. Module Loading ***
 
 /*
@@ -1566,20 +1518,13 @@ With ES6 modules we finally have a mechanism for letting the language deal with 
 This isn’t baked into javascript engines yet. So to solve this problem in Angular we still use the ES6 module loading syntax but leave it to TypeScript to transpile to CommonJS.
 
 */
-
 ```
-
-
-
-
 
 ## Types
 
 ....
 
-
 ```typescript
-
 // *** 1. Transpile-time type checking ***
 
 /*
@@ -1855,10 +1800,7 @@ Using types is optional but highly recommended by the Angular team.
 If using 3rd party libraries that have already been transpiled into javascript, typescript can still perform transpile-time type checking if we include the type definition file for the library.
 
 */
-
 ```
-
-
 
 ## Wrapping Up
 
