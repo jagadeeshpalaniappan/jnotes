@@ -24,7 +24,6 @@ var fun = function lang(l) {
 }
 ```
 
-
 ```javascript
 class Square extends React.Component {
   constructor(props) {
@@ -46,3 +45,4 @@ class Square extends React.Component {
   }
 }
 ```
+
