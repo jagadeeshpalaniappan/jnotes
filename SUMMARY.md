@@ -26,6 +26,8 @@
 ## JavaScript
 
 * [JavaScript Concepts](javascript/concepts/README.md)
+  * [0.EventLoop](javascript/concepts/0.eventloop.md)
+  * [Async / Await](javascript/concepts/5.-async-await.md)
   * [1. Event 'Bubbling' vs 'Capturing' vs 'Delegation'](javascript/concepts/1.md)
   * [2. Prototypal Inheritance \[TODO\]](javascript/concepts/2.md)
   * [3. Closure](javascript/concepts/3.md)
