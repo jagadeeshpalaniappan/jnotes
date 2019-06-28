@@ -26,6 +26,7 @@
 ## JavaScript
 
 * [JavaScript Concepts](javascript/concepts/README.md)
+  * ['new' keyword](javascript/concepts/new-keyword.md)
   * [0.EventLoop](javascript/concepts/0.eventloop.md)
   * [Async / Await](javascript/concepts/5.-async-await.md)
   * [1. Event 'Bubbling' vs 'Capturing' vs 'Delegation'](javascript/concepts/1.md)
@@ -49,6 +50,7 @@
   * [1](javascript/qstns/1.md)
   * [2](javascript/qstns/2.md)
   * [3](javascript/qstns/3.md)
+* [ts \(JD\)](javascript/ts-jd.md)
 * [Angular.js](javascript/angularjs.md)
 * [Angular](javascript/angular/README.md)
   * [1. TypeScript First](javascript/angular/1-ts.md)
