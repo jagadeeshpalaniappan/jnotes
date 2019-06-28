@@ -44,6 +44,7 @@
   * [9. setTimeOut vs Promise vs requestAnimationFrame](javascript/concepts/9.-settimeout-vs-promise-vs-requestanimationframe.md)
   * [10. Drag & Drop](javascript/concepts/10.-drag-and-drop.md)
   * [Performance](javascript/concepts/performance.md)
+  * [Event Loop](javascript/concepts/event-loop.md)
 * [todo](javascript/todo.md)
 * [JavaScript Interview Qstns](javascript/qstns/README.md)
   * [todo](javascript/qstns/todo.md)
