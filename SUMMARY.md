@@ -70,3 +70,21 @@
   * [2](css/qstns/2.md)
   * [todo](css/qstns/todo.md)
 
+## PERFORMANCE
+
+* [UI](performance/ui.md)
+* [ServerSide](performance/serverside/README.md)
+  * [Caching](performance/serverside/caching.md)
+  * [Horizontal Scaling](performance/serverside/horizontal-scaling.md)
+  * [MicroServices -Help in Scaling](performance/serverside/microservice-architecture.md)
+  * [Stateless API benefits](performance/serverside/stateless-api-benefits.md)
+  * [DB- Read Replicas](performance/serverside/db-read-replicas.md)
+  * [LoadBlancers](performance/serverside/loadblancers.md)
+
+## SERVER
+
+* [MS- Micro Services](server/ms-micro-services.md)
+* [Interview Questions \(ServerSide\)](server/interview-questions-serverside/README.md)
+  * [MicroServices - IntvQstns](server/interview-questions-serverside/microservice-interview-questions.md)
+  * [All](server/interview-questions-serverside/untitled.md)
+
