@@ -10,7 +10,7 @@
 {% tab title="1" %}
 
 
-![](../.gitbook/assets/image%20%2877%29.png)
+![](../.gitbook/assets/image%20%2884%29.png)
 {% endtab %}
 
 {% tab title="2" %}
