@@ -1,5 +1,26 @@
 # DB- Read Replicas
 
+```cpp
+# Read Replica: (One Master/ Multiple Slaves) (Write happens on Master)
+------------------------------------------------------------------------
+# Performance
+- Reduce the load on Master -by routing read queries to slaves
+- Amazon RDS (MySQL) allows you to add table indexes directly 
+    - (without those indexes being present on the master)
+
+#High Availability
+- You can promote a read replica if the source/Master DB instance fails
+
+#Disaster Recovery
+- You can also replicate DB instances 'across AWS Regions'
+- This functionality complements the synchronous replication, automatic failure detection, and failover provided with Multi-AZ deployments
+
+
+- Asynchronous replication – highly scalable
+- Can be manually promoted to a standalone database instance
+
+```
+
 ## Why do we need Read Replicas?
 
 **Enhanced Performance**
