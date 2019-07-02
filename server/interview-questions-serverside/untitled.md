@@ -18,6 +18,8 @@
 * leadership election, 
 * cluster state
 
+{% embed url="http://www.albertoleal.me/posts/how-to-prevent-race-conditions-in-restful-apis.html" %}
+
 
 
 
