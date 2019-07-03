@@ -8,13 +8,13 @@
 {% tab title="2" %}
 ### shouldComponentUpdate
 
-![](../../.gitbook/assets/image%20%28109%29.png)
+![](../../.gitbook/assets/image%20%28111%29.png)
 
-![](../../.gitbook/assets/image%20%2883%29.png)
+![](../../.gitbook/assets/image%20%2884%29.png)
 
-![](../../.gitbook/assets/image%20%2875%29.png)
+![](../../.gitbook/assets/image%20%2876%29.png)
 
-![](../../.gitbook/assets/image%20%28114%29.png)
+![](../../.gitbook/assets/image%20%28116%29.png)
 {% endtab %}
 {% endtabs %}
 
@@ -34,11 +34,11 @@
 {% endtab %}
 
 {% tab title="3" %}
-![](../../.gitbook/assets/image%20%28141%29.png)
+![](../../.gitbook/assets/image%20%28144%29.png)
 {% endtab %}
 
 {% tab title="4" %}
-![](../../.gitbook/assets/image%20%28185%29.png)
+![](../../.gitbook/assets/image%20%28188%29.png)
 {% endtab %}
 
 {% tab title="5" %}
@@ -46,11 +46,11 @@
 {% endtab %}
 
 {% tab title="6" %}
-![](../../.gitbook/assets/image%20%28154%29.png)
+![](../../.gitbook/assets/image%20%28157%29.png)
 {% endtab %}
 
 {% tab title="7" %}
-![](../../.gitbook/assets/image%20%2818%29.png)
+![](../../.gitbook/assets/image%20%2819%29.png)
 {% endtab %}
 {% endtabs %}
 
