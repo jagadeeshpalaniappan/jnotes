@@ -4,13 +4,13 @@
 
 {% tabs %}
 {% tab title="Old" %}
-![](../../.gitbook/assets/image%20%28148%29.png)
+![](../../.gitbook/assets/image%20%28173%29.png)
 {% endtab %}
 
 {% tab title="Old vs New LifeCycle" %}
-![](../../.gitbook/assets/image%20%2825%29.png)
+![](../../.gitbook/assets/image%20%2835%29.png)
 
-![](../../.gitbook/assets/image%20%2813%29.png)
+![](../../.gitbook/assets/image%20%2820%29.png)
 
 <table>
   <thead>
@@ -55,32 +55,32 @@
 {% tab title="Migration" %}
 1.component**WillMount** ---&gt; ****component**DidMount**
 
-![just a name change](../../.gitbook/assets/image%20%2817%29.png)
+![just a name change](../../.gitbook/assets/image%20%2824%29.png)
 
 2.component**WillReceieveProps** ---&gt; **get**Derived**State**FromProps
 
-![since newFn  is static &apos;this&apos; is not accessible \(i.e. this.state.xxxx\)](../../.gitbook/assets/image%20%28132%29.png)
+![since newFn  is static &apos;this&apos; is not accessible \(i.e. this.state.xxxx\)](../../.gitbook/assets/image%20%28156%29.png)
 
 3.component**WillUpdate** ---&gt; **getSnapshot**BeforeUpdate
 
 * whatever **getSnapshotBeforeUpdate** fn returns 
 * we can get that `snapshot` value in **componentDidUpdate** fn as a 3rd arg
 
-![](../../.gitbook/assets/image%20%2835%29.png)
+![](../../.gitbook/assets/image%20%2845%29.png)
 {% endtab %}
 {% endtabs %}
 
 
 
-React Code Styles
+## React Code Styles
 
 {% tabs %}
-{% tab title="NewClassStyle -> ES6+" %}
-![](../../.gitbook/assets/image%20%2883%29.png)
+{% tab title="ES6+ \(class\)" %}
+![](../../.gitbook/assets/image%20%2898%29.png)
 {% endtab %}
 
 {% tab title="Binding \'this\'" %}
-![](../../.gitbook/assets/image%20%2843%29.png)
+![](../../.gitbook/assets/image%20%2853%29.png)
 {% endtab %}
 {% endtabs %}
 
