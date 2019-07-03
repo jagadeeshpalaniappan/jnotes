@@ -3,21 +3,25 @@
 ```fsharp
 ## NoSQL vs SQL
 - NoSQL: 
-    - BASE (Basically Available, Soft state, Eventually consistent) 
+    - 'BASE' (Basically Available, Soft state, Eventually consistent) 
     - No Table Structure (dynamic schema)
-    - Distributed -by nature (horizontally scalable) (cheap to scale)
+    - 'Distributed' -by nature (horizontally scalable) (cheap to scale)
     - can handle huge volume of data (structured/un-structured)
-
+    - cannot gurantee ACID (not suitable where 'consistentcy is must') // e.g. financial transaction
     
 - SQL: 
-    - ACID (Atomicity, Consistency, Isolation & Durability)
+    - 'ACID' (Atomicity, Consistency, Isolation & Durability)
     - Table Structure (pre-defined schema)
-    - Note Distributed (verically scalable) (costly to scale) (read-replicas provides horizontal scaling)
+    - Not Distributed (verically scalable) (costly to scale) (read-replicas provides horizontal scaling)
     - cannot handle huge volume of data
+    - 'can gurantee ACID' (consistent & durable) (suitable for financial transaction)
 
 
 ## NoSQL Types
-- Document Based (MongoDB), Key-Value Based (Redis), Column Based (Cassandra), Graph Based (Neo4j)
+- Document Based (MongoDB)
+- Key-Value Based (Redis)
+- Column Based (Cassandra)
+- Graph Based (Neo4j)
 
 ```
 
@@ -213,6 +217,73 @@ NoSQL does not strictly follow ACID properties.
   * It may not be the case that you will always see the current data in NoSQL databases. 
   * You may be seeing the data as per last taken snapshot and a simultaneous transaction can interfere with each other.
   * This `inherent race condition` is a risk that is imposed by NoSQL databases.
+
+
+
+## When To Use NoSQL?
+
+**Given below are the use cases where you should prefer using NoSQL databases:**
+
+* To handle a `huge volume of structured, semi-structured and unstructured data.`
+* Where there is a need to follow modern software development practices like Agile Scrum and if you need to deliver prototypes or fast applications.
+* If you prefer object-oriented programming.
+* If your relational database **is not capable enough to scale up** to your traffic at an **acceptable cost**.
+* If you want to have an efficient, scale-out architecture 
+  * in place of an expensive and monolithic architecture.
+* If you have local data transactions that need not be very durable.
+* If you are going with schema-less data and want to include new fields without any ceremony.
+* When your priority is easy scalability and availability.
+
+## When To Avoid NoSQL?
+
+* `If 'consistency' is a must` and if there aren’t going to be any large-scale changes in terms of the data volume, then going with the SQL database is a better option.
+* NoSQL also lacks in the ability to perform dynamic operations. 
+  * It `can’t guarantee ACID properties`. 
+  * In such cases like **financial transactions**, etc., you may go with SQL databases.
+* If you are required to perform complex and dynamic querying and reporting, then you should avoid using NoSQL as it has a limited query functionality. For such requirements, you should prefer SQL only.
+* You should also avoid NoSQL if your application needs run-time flexibility.
+
+## Pros And Cons of SQL & NoSQL
+
+### **SQL Pros:**
+
+* It is highly suitable for relational databases.
+* Has a predefined schema which is helpful in many cases.
+* Normalization can be greatly used here, thus it also helps in removing redundancy and organizing data in a better way.
+* Transactions in SQL databases are ACID compliant, thereby guarantees security and stability.
+* Follows well-defined standards like ISI and ANSI which are accepted worldwide.
+* Code-free.
+* Unbeatable speed in retrieving database records with great ease.
+* Uses single standardized language i.e SQL across different RDBMS.
+
+### **SQL Cons:**
+
+* The process of interfacing is complex.
+* As SQL is an object, it occupies space.
+* Handling Big data is very costly as you will have to increase the hardware for scaling.
+* When a table is dropped, the view becomes inactive.
+
+### **NoSQL Pros:**
+
+* Capable of handling big data.
+* As it is schema-less and table free, it offers a high level of flexibility with data models.
+* It is a low-cost database and the open source NoSQL databases provide very affordable solutions to small enterprises.
+* Easier and low-cost scalability. You don’t need to increase the hardware for scaling. You just need to add more servers to the pool as NoSQL is schema-free and built on distributed systems.
+* Detailed database modeling is not required here. Hence it saves time and effort.
+
+### **NoSQL Cons:**
+
+* The benefits of NoSQL come at the cost of relaxing ACID properties. 
+  * NoSQL offers only eventual consistency.
+* Relatively less community support.
+* Lacks standardization, unlike SQL, which in turn creates some issues during migration.
+* Inter-operability is also a concern in the case of NoSQL databases.
+
+#### Conclusion
+
+We learned the difference between SQL vs NoSQL in detail here. The choice of the database will depend upon your preferences, business requirements, volume, and variety of data.
+
+NoSQL databases are gaining large popularity these days due to their capacity to integrate big data, low cost, easy scalability, and open source features. However, it is still a relatively young technology and lacks standardization, unlike SQL. Lack of ACID compliance is also a concern with NoSQL.
 
 
 
