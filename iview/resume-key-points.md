@@ -1,5 +1,7 @@
 
-### Full Stack Developer
+### Primary Skillset: (Professional Experience)
+
+#### Full Stack Developer
 - Front-End (UI - Developer)
   - UI Skills: React, Redux, Angular.js, Polymer, Web Components, JavaScript, ES6, TypeScript, Bootstrap, jQuery, AJAX, HTML5, CSS3, SASS, Lodash
   - Component-Driven Development (CDD)
@@ -25,4 +27,11 @@
   
 - Tools:
  - Jenkins, DevOps, CI / CD (Continuous Integration / Continuous Delivery), uDeploy, Git, SVN, CVS, HP Kintana, Mongo Management Studio, MongoChef
+ 
+ 
+ ### Secondary Skillset: (Personal Experience)
+- Hybrid Mobile App Technologies:
+  - Mobile App development –using Web Technologies, Apache Cordova (PhoneGap), Ionic Framework (Angular), React Native
+- Big Data Technologies:
+  - Hadoop, HDFS, MapReduce, Pig, Hive and Sqoop
 
