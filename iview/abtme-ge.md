@@ -1,8 +1,8 @@
 # About Me:
 
 * I work as a **Senior Software Engineer** in GE Digital
-* Its been around **7 years**, I have been working as a **Application Developer**
-* In this 7 years, I have got many **Wonderful Opportunities**,
+* Its been around **8 years**, I have been working as a **Web Application Developer**
+* In this 8 years, I have got many **Wonderful Opportunities**,
   * to **Learn** and **Work** with End –to- End web applications
   * When I say, End-to-End,
 
