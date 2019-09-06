@@ -97,9 +97,12 @@ Hope you got that...
 * In my free time,
 
 ```javascript
-- TODO: ```I also develop some useful applications and hobby projects ```
-- I also **volunteer** and take 'free classes' to college students (to give back my knowledge to society)
+- TODO: ```I also develop some useful applications and hobby projects
 ```
+
+* I also **volunteer** and take 'free classes' to college students \(to give back my knowledge to society\)
+
+  \`\`\`
 
 All these activities motivates me to learn and keep up-to-date with latest technologies.
 
