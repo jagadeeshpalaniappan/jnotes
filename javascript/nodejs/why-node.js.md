@@ -1,7 +1,3 @@
----
-description: Why & Where do we need Node.js?
----
-
 # Why Node.js?
 
 ## **Intro**
@@ -23,19 +19,14 @@ To create 'Highly Scalable -Web Aplications'
 
 // How it helps the team / company?    
 - "JavaScript across the Stack"
-    - optimally reuse developer resources
+    - makes software development process simple (including hiring, reuse developer resources)
     - share code between the browser and your backend
 ```
 
 ```javascript
 // Where is it suitable?  
-- I/O bound Applications [read/write (files, database), network/socket connections]
-    - 'Non-Blocking IO operation' helps to build (Highly Scalable) WebApp
-- Data Streaming Applications
-- Data Intensive Real-time Applications (DIRT)
-- JSON APIs based Applications
-- Single Page Applications
-
+- Any I/O bound Applications [read/write (files, database), network/socket connections]
+    - becuase 'Non-Blocking IO operation' helps to build (Highly Scalable) WebApp
 
 // Where is it NOT suitable?  
 - Node.js is NOT suitable for more "CPU-Intensive" Operations
