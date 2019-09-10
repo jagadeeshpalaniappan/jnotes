@@ -1,13 +1,12 @@
 ---
-description: What is Node.js and Why & Where do we need it?
+description: Why & Where do we need Node.js?
 ---
 
-# Node.js Introduction
+# Why Node.js?
 
 ## **Intro**
 
 ```javascript
-// What is Node.js?
 Node.js uses 'single-threaded', 'event-driven', 'asynchronous' programming approach
 ---- to handle 'Non-Blocking IO' operations efficiently ----
 ```
@@ -30,11 +29,12 @@ To create 'Highly Scalable -Web Aplications'
 
 ```javascript
 // Where is it suitable?  
-- Node.js is MORE suitable for "I/O bounded" Operations
-    - `like read/write (files, database), Network/Socket connections`
-    -  It provides 'Non-Blocking IO operation' with event-driven approach
-    -  It can provide `huge number of simultaneous network connections` 
-        - this helps to build (Highly Scalable) WebApp
+- I/O bound Applications [read/write (files, database), network/socket connections]
+    - 'Non-Blocking IO operation' helps to build (Highly Scalable) WebApp
+- Data Streaming Applications
+- Data Intensive Real-time Applications (DIRT)
+- JSON APIs based Applications
+- Single Page Applications
 
 
 // Where is it NOT suitable?  
@@ -85,22 +85,28 @@ We saw using `'Asynchronous IO'` operations helps to avoid blocking \(or waiting
 
 whereas, Node.js uses `Single-Threaded` - `Event-Driven` approach makes it easier to achieve **Non-Blocking IO**
 
+```bash
+
+# Every Node application runs on a 'single thread' 
+ - only one task/event is processed at a time
+ - You can imagine this event loop to be a queue of callbacks that are processed by Node on every 'tick' of the event loop. 
+
+# For every I/O bound task, 
+you can simply define a callback that will get added to the event queue. 
+ - The callback will fire when the I/O operation is done, 
+and in the mean time, 
+ - the application can continue to process other I/O bound requests without blocking the other request
+ 
+```
+
 * **Single-Threaded:** approach helps to avoid code accessing the same resources at the same time
 * **Event-Driven:** approach makes it easier to write and understand `asynchronous code` via 'callbacks'
   * Event-Driven approach is nothing but registering the ‘Event’ and callback functions gets called when the event occurs. `[who is invoking the callback? its 'EventLoop']`
   * This approach makes it easier to achieve Asynchronous IO operations
 
-> Sometimes this single threaded, async nature does make things complicated. But do you honestly think it's more complicated than threading? One race condition can ruin your entire month! Or empty out your thread pool due to some setting somewhere and watch your response time slow to a crawl! Not to mention deadlocks, priority inversions, and all the other gyrations that go with multithreading.
 
-```bash
-# REMEMBER #
-- "JavaScript is NOT Asynchronous" -- JavaScript is always Synchronous
-- Some of the JavaScript or Node.js functions are 'Asynchronous'
-    - 'setTimeout', 'fs.readFile', 'http.get'....
-- Node.js Apps sends an [Asynchronous Task]  to [Event Loop]  --along with a (callbackFn)
-- [Event Loop]  effectively manages the Thread Pool and executes the [AysnchronousTasks]
-- When [AysnchronousTasks] completes –the appropriate (callbackFn) will be called
-```
+
+> Sometimes this single threaded, async nature does make things complicated. But do you honestly think it's more complicated than threading? One race condition can ruin your entire month! Or empty out your thread pool due to some setting somewhere and watch your response time slow to a crawl! Not to mention deadlocks, priority inversions, and all the other gyrations that go with multithreading.
 
 ## How Node.js achieved `'Non-Blocking I/O'` ?
 
@@ -178,7 +184,15 @@ Node.js uses 'single-threaded', 'event-driven', 'asynchronous' programming appro
 ###########################################################
 ```
 
-
+```bash
+# REMEMBER #
+- "JavaScript is NOT Asynchronous" -- JavaScript is always Synchronous
+- Some of the JavaScript or Node.js functions are 'Asynchronous'
+    - 'setTimeout', 'fs.readFile', 'http.get'....
+- Node.js Apps sends an [Asynchronous Task]  to [Event Loop]  --along with a (callbackFn)
+- [Event Loop]  effectively manages the Thread Pool and executes the [AysnchronousTasks]
+- When [AysnchronousTasks] completes –the appropriate (callbackFn) will be called
+```
 
 ## Additional Resources
 

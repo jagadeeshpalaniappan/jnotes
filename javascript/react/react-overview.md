@@ -4,7 +4,7 @@
 
 {% tabs %}
 {% tab title="Old" %}
-![](../../.gitbook/assets/image%20%28176%29.png)
+![](../../.gitbook/assets/image%20%28178%29.png)
 {% endtab %}
 
 {% tab title="Old vs New LifeCycle" %}
@@ -59,7 +59,7 @@
 
 2.component**WillReceieveProps** ---&gt; **get**Derived**State**FromProps
 
-![since newFn  is static &apos;this&apos; is not accessible \(i.e. this.state.xxxx\)](../../.gitbook/assets/image%20%28159%29.png)
+![since newFn  is static &apos;this&apos; is not accessible \(i.e. this.state.xxxx\)](../../.gitbook/assets/image%20%28161%29.png)
 
 3.component**WillUpdate** ---&gt; **getSnapshot**BeforeUpdate
 
@@ -76,7 +76,7 @@
 
 {% tabs %}
 {% tab title="ES6+ \(class\)" %}
-![](../../.gitbook/assets/image%20%2899%29.png)
+![](../../.gitbook/assets/image%20%28100%29.png)
 {% endtab %}
 
 {% tab title="Binding \'this\'" %}

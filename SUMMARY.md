@@ -60,7 +60,8 @@
   * [1. TypeScript First](javascript/angular/1-ts.md)
   * [2. Angular CLI](javascript/angular/2-angular-cli.md)
 * [Node.js](javascript/nodejs/README.md)
-  * [Node.js Introduction](javascript/nodejs/why-node.js.md)
+  * [Node.js](javascript/nodejs/node.js.md)
+  * [Why Node.js?](javascript/nodejs/why-node.js.md)
   * [Advanced](javascript/nodejs/advanced.md)
   * [Event Loop & Libuv](javascript/nodejs/event-loop-and-libuv.md)
 
