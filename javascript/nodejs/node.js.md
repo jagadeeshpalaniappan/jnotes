@@ -12,7 +12,7 @@ _Node.js is a cross-platform `JavaScript Runtime Environment`- built on top of C
 
 
 ```text
-Node.js = JavaScript Runtime Environment + Extension of JavaScript (Server-Side) Behavior
+Node.js = JavaScript Runtime Environment + (Server-Side) Behavior
 
 Node.js = V8-Engine + Libuv(Asynchronous IO) + Non-Blocking IO + Node-Core (C++ Library) + C++ Wrappers (.js files) & JavaScript Utility Function (.js files)
 ```
@@ -40,9 +40,48 @@ Following are some of the important features that make Node.js the first choice 
 
 ## Node.js Architecture 
 
+
+
+```text
+Node.js = V8-Engine + Libuv(Asynchronous IO) + Non-Blocking IO + Node-Core (C++ Library) + C++ Wrappers (.js files) & JavaScript Utility Function (.js files)
+```
+
 ![](../../.gitbook/assets/image%20%2865%29.png)
 
 
 
+## Server-Side Behavior Added in JavaScript
 
+```text
+Node.js = JavaScript + (Server-Side) Behavior
+```
+
+* With the help of \(V8-Engine\) --Node.js has added additional features to the JavaScript \(added some C/C++ libraries\) 
+* Additional Features :
+
+  * **`Non-Blocking IO` approach**
+    * Operating System's IO operations are slower \(it has 'Longer Waiting Time'\)
+      * `[open/read/write (files, database, network/socket connections)]`
+    * _**Use:  'Asynchronous IO' operations at OS level**_
+    * Node embeds –‘libuv’ External \(C++ Library\)
+    * `libuv` helps to perform Asynchronous IO operations in Node.js
+    * This approach helps to achieve Non-Blocking nature in Node.js
+  * **Dealing with `Internet`** \(HTTP Request & HTTP Response\) 
+    * Node embeds -'http-parser' External \(C++ Library\)
+  * **Dealing with `Files`** \[ Node-Core \(C++ Library\) \] 
+  * **Dealing with `Databases`** \[ Node-Core \(C++ Library\) \] 
+
+* These “additional features” help us to build an Server-Side \(Web App\) completely in JavaScript itself
+
+
+
+* **How? Node.js has added additional features to JavaScript?**
+  * \(V8-Engine\) helps Node.js to add additional \(C++\) features
+  * V8 allows, JavaScript to call C++ code 
+    * `var binding = process.binding('fs'); //JS calls & get File System C++ Library`
+  * So Now, “Whatever C++ code can do -- JavaScript also can do the same!!” \(by calling that C++ function\)
+* **NOTE: This is not the new idea, \(Adding a C++ feature to JavaScript\)**
+  * Browser \(V8-Engine + Additional C++ libraries\)
+  * V8-Engine: handles only pure JavaScript \(ECMA Script standards\) \(doesn’t handle DOM manipulation\)
+  * Browser\(C++ Code\): handles DOM manipulation \(which means added additional features to Browser Runtime\)
 

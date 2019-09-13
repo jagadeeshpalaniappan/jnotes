@@ -1,8 +1,16 @@
 # Event Loop & Libuv
 
-```text
-- Node is a great fit for I/O bound tasks, and definitely not for CPU intensive tasks. 
-- 
+```bash
+JavaScript is 
+    - 'single-threaded', 
+    - 'non-blocking', 
+    - 'event-driven', 'asynchronous', 'concurrent' language
+
+JavaScript has 
+    - a 'call stack', 
+    - an 'event loop', 
+    - a 'callback queue', 
+    - and 'some other APIs' (DOM API)
 
 ```
 
