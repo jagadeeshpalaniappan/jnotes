@@ -25,7 +25,8 @@
 
 * [JavaScript Concepts](javascript/concepts/README.md)
   * ['new' keyword](javascript/concepts/new-keyword.md)
-  * [0.EventLoop](javascript/concepts/0.eventloop.md)
+  * [0. Event Loop & CallStack](javascript/concepts/event-loop-and-libuv/README.md)
+    * [EventLoop Example Code](javascript/concepts/event-loop-and-libuv/0.eventloop.md)
   * [1. Event 'Bubbling' vs 'Capturing' vs 'Delegation'](javascript/concepts/1.md)
   * [2. Prototypal Inheritance \[TODO\]](javascript/concepts/2.md)
   * [3.Scope](javascript/concepts/3.scope/README.md)
@@ -63,7 +64,7 @@
   * [Node.js](javascript/nodejs/node.js.md)
   * [Why Node.js?](javascript/nodejs/why-node.js.md)
   * [Where Node.js Fits?](javascript/nodejs/untitled.md)
-  * [Event Loop & Libuv](javascript/nodejs/event-loop-and-libuv.md)
+  * [Event Loop & Libuv](javascript/nodejs/untitled-1.md)
   * [Advanced](javascript/nodejs/advanced.md)
 
 ## CSS
