@@ -1,6 +1,6 @@
 # 0. Event Loop & CallStack
 
-```bash
+```javascript
 JavaScript is 
     - 'single-threaded', 
     - 'non-blocking', 
@@ -9,8 +9,8 @@ JavaScript is
 Browser has 
     - a 'call stack', 
     - an 'event loop', 
-    - a 'callback queue', 
-    - and 'some other APIs' (DOM API)
+    - a 'Task Queue', 'Micro Task Queue''
+    - and 'some other Web APIs' (document, XMLHttpRequest, fetch, requestAnimationFrame)
 
 
 - JavaScript Runtime - can do only 'one thing at a time'
@@ -24,6 +24,21 @@ Browser has
 - On every iteration,
 - 'Event Loop' looks at the Task Queue and add 'Task' into the CallStack (whenever the current CallStack gets empty)
 
+
+#### Task: ####
+ - setTimeout(..), setInterval(..)
+ - XMLHttpRequest, fetch(..)
+ - 'click/change/load' event
+ 
+ - setImmediate(..)    // Node.js Only
+ 
+
+#### Micro Task: ####
+ - Promise [.then(..), .catch(..) .finally(..)]
+ - Object.observe
+ 
+ - process.nextTick    // Node.js Only
+ 
 ```
 
 
@@ -71,4 +86,12 @@ Browser has
 ![](../../../.gitbook/assets/js-callstack-async-ajax-1%20%281%29.gif)
 
 
+
+## Must Watch Videos \[Event Loop\]
+
+{% embed url="https://www.youtube.com/watch?v=8aGhZQkoFbQ&t=166s" %}
+
+{% embed url="https://www.youtube.com/watch?v=cCOL7MC4Pl0" %}
+
+{% embed url="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" %}
 
