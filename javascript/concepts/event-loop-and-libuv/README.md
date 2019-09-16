@@ -28,7 +28,7 @@ Browser has
 #### Task: ####
  - setTimeout(..), setInterval(..)
  - XMLHttpRequest, fetch(..)
- - 'click/change/load' event
+ - 'click/change/load ...' event
  
  - setImmediate(..)    // Node.js Only
  
