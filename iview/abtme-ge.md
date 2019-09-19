@@ -7,7 +7,7 @@
   * When I say, End-to-End,
 
     ```javascript
-      - developing application from scratch (brand new application)
+      - starting from creating application from scratch (brand new application)
       - developing **'Front-End'** application
       - developing **'Back-End'** application
       - building & deploying applications
