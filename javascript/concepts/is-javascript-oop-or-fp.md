@@ -1,5 +1,5 @@
 ---
-description: Is JavaScript Object-Oriented Programming vs Functional Programming?
+description: Is JavaScript Object-Oriented Programming or Functional Programming?
 ---
 
 # Is JavaScript OOP or FP?

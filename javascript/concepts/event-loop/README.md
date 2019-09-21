@@ -1,4 +1,4 @@
-# 0. Event Loop & CallStack
+# 0. Event Loop
 
 ```javascript
 JavaScript is 
@@ -47,43 +47,79 @@ Browser has
 
 ## Call Stack
 
-### Simple \(Call Stack\)
+{% tabs %}
+{% tab title="Sync" %}
+#### Synchronous: Simple Code \(Call Stack\)
 
-![](../../../.gitbook/assets/js-callstack-simple-1.gif)
+{% embed url="https://drive.google.com/open?id=1UG5Ir-MM1MFxKJQGgV-IBpgTphbmd\_06sBmLguUOgT0" %}
 
-### Error \(Call Stack\) 
+ 
+{% endtab %}
+
+{% tab title="Error \(Call Stack\) " %}
+#### Error \(Call Stack\)
 
 ![](../../../.gitbook/assets/js-callstack-err.png)
+{% endtab %}
 
-### 
+{% tab title="Maximum \(Call Stack\) exceeded" %}
+#### Maximum \(Call Stack\) exceeded
 
-### Maximum \(Call Stack\) exceeded
+{% embed url="https://drive.google.com/open?id=1s0c98XHB1oB9G7jEVwkIrcoVoXrgMgWCEaxeLACuwdg" %}
+{% endtab %}
 
-![](../../../.gitbook/assets/js-callstack-max-1.gif)
+{% tab title="setTimeout" %}
+#### setTimeout \(Call Stack\) 
 
-### 
+{% embed url="https://drive.google.com/open?id=1jllxkq3EscDnGgwiCYeDQ3jbi3YM8j67cSg7P8THfis" %}
 
-### setTimeout \(Call Stack\) 
+#### 
 
-![](../../../.gitbook/assets/js-callstack-async-settimeout-5000-1.gif)
+#### setTimeout \(Call Stack\)  -Detailed
 
-### 
+{% embed url="https://drive.google.com/open?id=15lQyXn2sTOK4bqgy28bS9ODsXHQNNnISpwMvq\_jrV0M" %}
+{% endtab %}
 
-### setTimeout \(Call Stack\) - Detailed
-
-![](../../../.gitbook/assets/js-callstack-async-settimeout-5000-detailed-1.gif)
-
-
-
+{% tab title="setTimeout-0" %}
 ### setTimeout\(..., 0\) \(Call Stack\) 
 
-![](../../../.gitbook/assets/js-callstack-async-settimeout-0-detailed-1.gif)
+{% embed url="https://drive.google.com/open?id=1LlsveY1Cw12-ghSYjdeRGAhtwZJM9XYk2bLMsGmnU6E" %}
+{% endtab %}
 
-
-
+{% tab title="AJAX" %}
 ### AJAX \(Call Stack\) 
 
-![](../../../.gitbook/assets/js-callstack-async-ajax-1%20%281%29.gif)
+{% embed url="https://drive.google.com/open?id=1oPSV9H\_D8fOwFTajhys5pGX8oexmbmd8BEMYujTCa00" %}
+{% endtab %}
+{% endtabs %}
+
+### 
+
+## Event Loop -Detailed:
+
+{% embed url="https://drive.google.com/open?id=1ZLyawPiRcA-llgP0NobUGPBPTZ1y0cK8TgFjhNVeCWc" %}
+
+
+
+### 
+
+### 
+
+### 
+
+### 
+
+### 
+
+### 
+
+
+
+### 
+
+
+
+### 
 
 
 
@@ -94,4 +130,12 @@ Browser has
 {% embed url="https://www.youtube.com/watch?v=cCOL7MC4Pl0" %}
 
 {% embed url="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/" %}
+
+{% embed url="http://voidcanvas.com/nodejs-event-loop/" %}
+
+### setImmediate\(\) vs nextTick\(\) vs setTimeout\(fn,0\)
+
+{% embed url="http://voidcanvas.com/setimmediate-vs-nexttick-vs-settimeout/" %}
+
+
 
