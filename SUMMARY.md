@@ -46,6 +46,7 @@
   * [5. Web Workers \[TODO\]](javascript/concepts/5.-web-workers.md)
   * [Performance](javascript/concepts/performance.md)
   * [Event Loop](javascript/concepts/event-loop.md)
+  * [Is JavaScript OOP or FP?](javascript/concepts/is-javascript-oop-or-fp.md)
   * [todo](javascript/concepts/todo.md)
 * [JavaScript Interview Qstns](javascript/qstns/README.md)
   * [todo](javascript/qstns/todo.md)
