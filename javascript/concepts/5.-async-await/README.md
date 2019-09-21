@@ -2,13 +2,13 @@
 description: EventLoop + Promise + Async/Await
 ---
 
-# Async / Await -- Promise
+# 4. Async / Await -- Promise
 
 Read this first
 
 
 
-{% page-ref page="event-loop-and-libuv/0.eventloop.md" %}
+{% page-ref page="../event-loop-and-libuv/0.eventloop.md" %}
 
 {% embed url="https://stackblitz.com/edit/jnotes?file=js%2F2-async-await--promise%2Findex.js" %}
 
