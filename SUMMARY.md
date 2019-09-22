@@ -24,7 +24,6 @@
 ## JavaScript
 
 * [JavaScript Concepts](javascript/concepts/README.md)
-  * ['new' keyword](javascript/concepts/new-keyword.md)
   * [0. Event Loop](javascript/concepts/event-loop/README.md)
     * [EventLoop Example Code](javascript/concepts/event-loop/0.eventloop.md)
     * [setTimeOut vs Promise vs requestAnimationFrame](javascript/concepts/event-loop/9.-settimeout-vs-promise-vs-requestanimationframe.md)
@@ -33,6 +32,7 @@
   * [3.Scope](javascript/concepts/3.scope/README.md)
     * [LexicalScope vs Closure Scope](javascript/concepts/3.scope/lexicalscope.md)
     * [Closure Scope \(More Detailed\)](javascript/concepts/3.scope/3.md)
+  * ['new' keyword](javascript/concepts/new-keyword.md)
   * [4. Async / Await -- Promise](javascript/concepts/5.-async-await/README.md)
     * [4. Promise \[MTODO\]](javascript/concepts/5.-async-await/4.md)
   * [6. ES6](javascript/concepts/6/README.md)

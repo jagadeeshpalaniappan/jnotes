@@ -9,22 +9,44 @@ JavaScript is
 Browser has 
     - a 'call stack', 
     - an 'event loop', 
-    - a 'Task Queue', 'Micro Task Queue''
-    - and 'some other Web APIs' (document, XMLHttpRequest, fetch, requestAnimationFrame)
+    - a 'Task Queue', 'Micro Task Queue',
+    - 'Web APIs' (document, XMLHttpRequest, fetch, requestAnimationFrame,..)
+    - and 'some other APIs' (Promise,..)
 
 
 - JavaScript Runtime - can do only 'one thing at a time'
 - But browser can do 'more than one thing at a time'
+
+```
+
+![](../../../.gitbook/assets/browser.gif)
+
+```javascript
 - When 'JavaScript CallStack' sees the async fn (setTimeout, xhr,..)
-- it executes and assign the async task to 'browser/node.js' and does NOT wait for the completion
-    - JavaScript CallStack continue executing the other lines
+- it executes that sync fn and assign the asynchronous task to 'browser/node.js' and does NOT wait for the completion
+    - JavaScript CallStack continue executing the other fns / lines
 ....
 ....    
-- once 'browser/node.js' completes the task, it adds into the 'Task Queue'
-- On every iteration,
-- 'Event Loop' looks at the Task Queue and add 'Task' into the CallStack (whenever the current CallStack gets empty)
+- once 'browser/node.js' completes that asynchronous task, it adds that 'callback' into the 'Task Queue'
+....
+.... 
+################################################################
+On every 'Event Loop' iteration, 
+it looks at
+    1. Current Call Stack is "empty"
+    2. Micro Task Queue is "empty"
+    3. Task Queue has "...some items..." ######<------
+    4. Did browser decide to run Render Steps? No
+    5. Continue Event Loop 
+################################################################
 
+On every 'Event Loop' iteration, 
+- if the current CallStack is empty and MicroTaskQueue is empty,
+- it takes the "first Task's callback fn" from the 'Task Queue' and executes in the current CallStack
 
+```
+
+```javascript
 #### Task: ####
  - setTimeout(..), setInterval(..)
  - XMLHttpRequest, fetch(..)
@@ -38,12 +60,9 @@ Browser has
  - Object.observe
  
  - process.nextTick    // Node.js Only
- 
 ```
 
 
-
-![](../../../.gitbook/assets/browser.gif)
 
 ## Call Stack
 
@@ -93,9 +112,9 @@ Browser has
 {% endtab %}
 {% endtabs %}
 
-### 
 
-## Event Loop -Detailed:
+
+## Event Loop -\(Jag Detailed\):
 
 {% embed url="https://drive.google.com/open?id=1ZLyawPiRcA-llgP0NobUGPBPTZ1y0cK8TgFjhNVeCWc" %}
 
@@ -103,23 +122,7 @@ Browser has
 
 ### 
 
-### 
 
-### 
-
-### 
-
-### 
-
-### 
-
-
-
-### 
-
-
-
-### 
 
 
 
