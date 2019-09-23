@@ -44,6 +44,7 @@
   * [5. Promise](javascript/concepts/5.-promise/README.md)
     * [Async / Await -- Promise](javascript/concepts/5.-promise/5.-async-await.md)
     * [Promise \[MTODO\]](javascript/concepts/5.-promise/4.md)
+    * [Promise.all vs .allSettled & Promise.race vs .any](javascript/concepts/5.-promise/promise.all-vs-.allsettled-and-promise.race-vs-.any.md)
   * [6. ES6](javascript/concepts/6/README.md)
     * [1. let vs const vs var](javascript/concepts/6/1.md)
     * [2. Arrow Fns](javascript/concepts/6/2.md)
