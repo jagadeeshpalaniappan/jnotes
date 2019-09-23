@@ -1,4 +1,4 @@
-# Function
+# 4. Function
 
 * **In JavaScript everything is an** _**'object'**_ 
   * except

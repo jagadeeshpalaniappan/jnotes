@@ -1,4 +1,4 @@
-# 0. Event Loop
+# 1. Event Loop
 
 ```javascript
 JavaScript is 

@@ -1,4 +1,4 @@
-# Lambda and Arrow Functions
+# Lambda and Arrow Functions \[TODO\]
 
 {% embed url="https://www.vinta.com.br/blog/2015/javascript-lambda-and-arrow-functions/" %}
 
