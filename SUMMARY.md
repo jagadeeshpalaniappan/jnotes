@@ -47,7 +47,7 @@
     * [Promise.all vs .allSettled & Promise.race vs .any](javascript/concepts/5.-promise/promise.all-vs-.allsettled-and-promise.race-vs-.any.md)
     * [Promise \[MTODO\]](javascript/concepts/5.-promise/4.md)
   * [6. ES6](javascript/concepts/6/README.md)
-    * [1. let vs const vs var](javascript/concepts/6/1.md)
+    * [1. 'var' vs 'let' vs 'const'](javascript/concepts/6/var-vs-let-vs-const.md)
     * [2. Arrow Fns](javascript/concepts/6/2.md)
     * [3. Tagged Template Literals](javascript/concepts/6/3.md)
     * [4. Iterator & Generator](javascript/concepts/6/4.md)
