@@ -48,7 +48,7 @@
 
 ## 2. Arrow Functions in ES6
 
-.....
+{% embed url="https://jagadeeshpalaniappan.gitbook.io/jnotes/javascript/concepts/6/arrow-fn" %}
 
 {% tabs %}
 {% tab title="JS" %}
