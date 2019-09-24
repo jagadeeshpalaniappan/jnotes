@@ -10,14 +10,14 @@
 3. Default Parameters             // function myFn(name = 'Jag') { ... } // myFn(); myFn('Jagadeesh')
 4. Rest and Spread Parameters     // function myFn(arg1, arg2, ...restArgs) { ... } // myFn(...myArr)
 5. Destructuring Assignment       // var { id, name, age } = user;
+6. for..of Loop
 
 6. Promises
 7. Async / Await
 
 8. Classes
 9. Modules
-
-10. for..of Comprehensions    
+    
 11. Template Literals             // var line1 = `My name is ${name} age is ${age}.`;
 12. Multi-line Strings
 13. Enhanced Object Literals
@@ -48,7 +48,58 @@
 
 ## 2. Arrow Functions in ES6
 
+.....
+
+{% tabs %}
+{% tab title="JS" %}
+```javascript
+var logUpperCase = function() {
+  var self = this;
+
+  this.string = this.string.toUpperCase()
+  return function () {
+    return console.log(self.string)
+  }
+}
+
+logUpperCase.call({ string: 'es6 rocks' })()
+```
+{% endtab %}
+
+{% tab title="ES6" %}
+```javascript
+var logUpperCase = function() {
+  this.string = this.string.toUpperCase()
+  return () => console.log(this.string)
+}
+
+logUpperCase.call({ string: 'es6 rocks' })()
+
+```
+{% endtab %}
+{% endtabs %}
+
 ....
+
+{% tabs %}
+{% tab title="JS" %}
+```javascript
+var ids = ['ONE', 'TWO'];
+var messages = ids.map(function (value, index, list) {
+  return 'ID of ' + index + ' element is ' + value + ' ' // explicit return
+});
+```
+{% endtab %}
+
+{% tab title="ES6" %}
+```javascript
+var ids = ['ONE','TWO']
+var messages = ids.map((value, index, list) => `ID of ${index} element is ${value} `) // implicit return
+```
+{% endtab %}
+{% endtabs %}
+
+
 
 ## 3.Default Parameters
 
@@ -201,7 +252,9 @@ var [one, two, three] = [ 1, 2, 3, 4, 5 ];
 {% endtab %}
 {% endtabs %}
 
+## 6. for..of Loop
 
+{% embed url="https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript" %}
 
 ## 6. Promises
 
@@ -319,7 +372,9 @@ Note, that **`native support for ES6 modules in browsers is not coming any time 
 
 
 
-## 10. Template Literals
+{% embed url="https://thecodebarbarian.com/for-vs-for-each-vs-for-in-vs-for-of-in-javascript" %}
+
+## 11. Template Literals
 
 {% tabs %}
 {% tab title="JS" %}
@@ -339,7 +394,7 @@ This is neat and allows developers to see the end result of the strings at one g
 {% endtab %}
 {% endtabs %}
 
-## 11. Multi-line Strings
+## 12. Multi-line Strings
 
 {% tabs %}
 {% tab title="JS" %}
@@ -372,58 +427,9 @@ var fourAgreements = `You have the right to be you.
 
 ```
 
-## 12. Enhanced Object Literals
-
-.....
-
-{% tabs %}
-{% tab title="JS" %}
-```javascript
-var logUpperCase = function() {
-  var self = this;
-
-  this.string = this.string.toUpperCase()
-  return function () {
-    return console.log(self.string)
-  }
-}
-
-logUpperCase.call({ string: 'es6 rocks' })()
-```
-{% endtab %}
-
-{% tab title="ES6" %}
-```javascript
-var logUpperCase = function() {
-  this.string = this.string.toUpperCase()
-  return () => console.log(this.string)
-}
-
-logUpperCase.call({ string: 'es6 rocks' })()
-
-```
-{% endtab %}
-{% endtabs %}
+## 13. Enhanced Object Literals
 
 ....
-
-{% tabs %}
-{% tab title="JS" %}
-```javascript
-var ids = ['ONE', 'TWO'];
-var messages = ids.map(function (value, index, list) {
-  return 'ID of ' + index + ' element is ' + value + ' ' // explicit return
-});
-```
-{% endtab %}
-
-{% tab title="ES6" %}
-```javascript
-var ids = ['ONE','TWO']
-var messages = ids.map((value, index, list) => `ID of ${index} element is ${value} `) // implicit return
-```
-{% endtab %}
-{% endtabs %}
 
 
 

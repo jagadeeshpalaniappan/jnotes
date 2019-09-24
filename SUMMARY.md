@@ -48,7 +48,7 @@
     * [Promise \[MTODO\]](javascript/concepts/5.-promise/4.md)
   * [6. ES6](javascript/concepts/6/README.md)
     * [1. 'var' vs 'let' vs 'const'](javascript/concepts/6/var-vs-let-vs-const.md)
-    * [2. Arrow Fns](javascript/concepts/6/2.md)
+    * [2. Arrow Fns](javascript/concepts/6/arrow-fn.md)
     * [3. Tagged Template Literals](javascript/concepts/6/3.md)
     * [4. Iterator & Generator](javascript/concepts/6/4.md)
   * [7. Web Workers \[TODO\]](javascript/concepts/5.-web-workers.md)
