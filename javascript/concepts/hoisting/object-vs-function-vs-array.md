@@ -26,7 +26,7 @@ console.log(typeof myFn);     // function
 console.dir(myFn);
 ```
 
-![](../../../.gitbook/assets/image%20%2881%29.png)
+![](../../../.gitbook/assets/image%20%2882%29.png)
 
 ```javascript
 const f1 = new myFn();        // works fine
@@ -37,7 +37,7 @@ console.dir(f1);
 
 `f1` is an object
 
-![](../../../.gitbook/assets/image%20%28199%29.png)
+![](../../../.gitbook/assets/image%20%28200%29.png)
 
 Function Expression also behaves the same way
 {% endtab %}
@@ -56,7 +56,7 @@ console.dir(myObj);
 
 
 
-![](../../../.gitbook/assets/image%20%28158%29.png)
+![](../../../.gitbook/assets/image%20%28159%29.png)
 {% endtab %}
 
 {% tab title="Array" %}

@@ -32,6 +32,8 @@
 6. New data structures like Map and Set
 ```
 
+![](../../../.gitbook/assets/image%20%2863%29.png)
+
 ## JavaScript History
 
 * **1995:** JavaScript is born as LiveScript at Netscape
@@ -394,7 +396,7 @@ This is neat and allows developers to see the end result of the strings at one g
 {% endtab %}
 {% endtabs %}
 
-## 12. Multi-line Strings
+### Multi-line is possible
 
 {% tabs %}
 {% tab title="JS" %}
@@ -423,7 +425,28 @@ var fourAgreements = `You have the right to be you.
 {% endtab %}
 {% endtabs %}
 
-```
+### Tagged Templates
+
+Tagged templates is another use case for Template Literals. A tagged template is a function call that uses a template literal from which to get its arguments.
+
+```javascript
+function greet(strArr, nameArg, ageArg) {
+  console.log(strArr);  // ["My name is ", " and age is ", " years old."]
+  console.log(nameArg); // Jagadeesh
+  console.log(ageArg);  // 22
+  
+  const finalResp = 'Hello, ' + strArr[0] + nameArg + strArr[1] + ageArg;
+  return finalResp;
+}
+
+var name = 'Jagadeesh';
+var age = 22;
+
+// Tagged Templates:
+greet `My name is ${name} and age is ${age} years old.`  // Hello, My name is Jagadeesh and age is 22
+
+// Equivalent old fn:
+greet(["My name is ", " and age is ", " years old."], name, age); // Hello, My name is Jagadeesh and age is 22
 
 ```
 

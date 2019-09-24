@@ -74,7 +74,7 @@ console.log(user2); // User {name: "User 2", points: 4}
 console.dir(User);
 ```
 
-![](../../../.gitbook/assets/image%20%28170%29.png)
+![](../../../.gitbook/assets/image%20%28171%29.png)
 {% endtab %}
 {% endtabs %}
 

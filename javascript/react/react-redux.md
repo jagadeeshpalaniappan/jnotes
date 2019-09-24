@@ -4,7 +4,7 @@
 
 {% tabs %}
 {% tab title="1" %}
-![](../../.gitbook/assets/image%20%2877%29.png)
+![](../../.gitbook/assets/image%20%2878%29.png)
 {% endtab %}
 
 {% tab title="2" %}
@@ -12,7 +12,7 @@
 {% endtab %}
 
 {% tab title="3" %}
-![](../../.gitbook/assets/image%20%28201%29.png)
+![](../../.gitbook/assets/image%20%28202%29.png)
 {% endtab %}
 
 {% tab title="4" %}
