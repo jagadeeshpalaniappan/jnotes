@@ -53,6 +53,9 @@
     * [4. Iterator & Generator](javascript/concepts/6/4.md)
     * [5. for...of \[ETODO\]](javascript/concepts/6/5.-for...of.md)
   * [7. Web Workers \[TODO\]](javascript/concepts/5.-web-workers.md)
+  * [Frequently Used Fns](javascript/concepts/frequently-used-fns/README.md)
+    * [.map \[TODO\]](javascript/concepts/frequently-used-fns/.map-todo.md)
+    * [.reduce \[ETODO\]](javascript/concepts/frequently-used-fns/.reduce.md)
   * [Performance](javascript/concepts/performance.md)
   * [How to?](javascript/concepts/how-to/README.md)
     * [Debounce vs Throttle](javascript/concepts/how-to/7.-debounce-vs-throttle.md)
@@ -101,6 +104,7 @@
   * [MicroServices -Help in Scaling](performance/serverside/microservice-architecture.md)
   * [Stateless API benefits](performance/serverside/stateless-api-benefits.md)
   * [DB- Read Replicas](performance/serverside/db-read-replicas.md)
+  * [Node.js \[eTODO\]](performance/serverside/node.js.md)
   * [LoadBlancers](performance/serverside/loadblancers.md)
 
 ## SERVER
