@@ -51,6 +51,7 @@
     * [2. Arrow Fns](javascript/concepts/6/arrow-fn.md)
     * [3. Tagged Template Literals](javascript/concepts/6/3.md)
     * [4. Iterator & Generator](javascript/concepts/6/4.md)
+    * [5. for...of \[ETODO\]](javascript/concepts/6/5.-for...of.md)
   * [7. Web Workers \[TODO\]](javascript/concepts/5.-web-workers.md)
   * [Performance](javascript/concepts/performance.md)
   * [How to?](javascript/concepts/how-to/README.md)
