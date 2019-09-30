@@ -1,4 +1,4 @@
-# Top 100 - MEDIUM
+# 2. Top 100 - MEDIUM
 
 | \# | qId | Title | freqStars |
 | :--- | :--- | :--- | :--- |

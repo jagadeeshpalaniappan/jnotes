@@ -124,7 +124,7 @@
 ## LEET
 
 * [Top 100 Liked](leet/top-100-liked/README.md)
-  * [Top 100 - EASY](leet/top-100-liked/top-100-easy.md)
-  * [Top 100 - MEDIUM](leet/top-100-liked/top-100-medium.md)
-  * [Top 100 - HARD](leet/top-100-liked/top-100-hard.md)
+  * [1. Top 100 - EASY](leet/top-100-liked/top-100-easy.md)
+  * [2. Top 100 - MEDIUM](leet/top-100-liked/top-100-medium.md)
+  * [3. Top 100 - HARD](leet/top-100-liked/top-100-hard.md)
 
