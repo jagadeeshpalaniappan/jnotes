@@ -129,26 +129,6 @@ function maxSubArray(inputArr) {
 ## [3. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)
 
 {% tabs %}
-{% tab title="1" %}
-
-{% endtab %}
-
-{% tab title="2" %}
-
-{% endtab %}
-{% endtabs %}
-
-{% tabs %}
-{% tab title="1" %}
-
-{% endtab %}
-
-{% tab title="2" %}
-
-{% endtab %}
-{% endtabs %}
-
-{% tabs %}
 {% tab title="Question" %}
 Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
 
@@ -403,16 +383,117 @@ function reverseList(currNode) {
 
 {% tabs %}
 {% tab title="Question" %}
-...
+Say you have an array for which the _i_th element is the price of a given stock on day _i_.
+
+If you were only permitted to complete at most one transaction \(i.e., buy one and sell one share of the stock\), design an algorithm to find the maximum profit.
+
+Note that you cannot sell a stock before you buy one.
+
+**Example 1:**
+
+```text
+Input: [7,1,5,3,6,4]
+Output: 5
+Explanation: 
+Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
+NOT: 7-1 = 6, as selling price needs to be larger than buying price.
+```
+
+**Example 2:**
+
+```text
+Input: [7,6,4,3,1]
+Output: 0
+Explanation: In this case, no transaction is done, i.e. max profit = 0.
+```
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=mj7N8pLCJ6w" %}
 {% endtab %}
 
-{% tab title="Code" %}
+{% tab title="Code\(BF\)" %}
 ```javascript
-....
+// Sol1 :  Brute Force
+// Time complexity : O(n^2) // Space complexity : O(1)
+function maxProfit(prices) {
+  let maxProfitSoFar = 0;
+  for (let i = 0; i < prices.length - 1; i++) {
+    const currItem = prices[i];
+
+    // we can avoid this 'forLoop',
+    // since anyway , we further iterate other items in the outerForLooop,
+    // We dont need this extraLoop
+    for (let j = i + 1; j < prices.length; j++) {
+      const currProfit = prices[j] - currItem;
+
+      // 'currProfit' is better than 'maxProfitSoFar'
+      // update: maxProfitSoFar
+      maxProfitSoFar = Math.max(maxProfitSoFar, currProfit);
+    }
+  }
+  return maxProfitSoFar;
+}
+```
+{% endtab %}
+
+{% tab title="Code\(BEST\)" %}
+```javascript
+// Sol2 :  [BEST]
+// Time complexity : O(n) // Space complexity : O(1)
+/*
+  1. find: minItem
+  2. find: maxProfitSoFar
+*/
+function maxProfit2(prices) {
+  let minPriceSoFar = Number.MAX_VALUE;
+  let maxProfitSoFar = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    const currItem = prices[i];
+
+    if (currItem < minPriceSoFar) {
+      // 'currItem' is smaller than 'minPriceSoFar'
+      // update: minPriceSoFar
+      minPriceSoFar = currItem;
+    } else {
+      const currProfit = currItem - minPriceSoFar;
+
+      // 'currProfit' is better than 'maxProfitSoFar'
+      // update: maxProfitSoFar
+      maxProfitSoFar = Math.max(maxProfitSoFar, currProfit);
+    }
+  }
+  return maxProfitSoFar;
+}
+
+```
+
+
+
+```javascript
+// Sol2 :  [BEST] [SHORT]
+// Time complexity : O(n) // Space complexity : O(1)
+/*
+  1. find: minItem
+  2. find: maxProfitSoFar
+*/
+function maxProfit(prices) {
+  let minPriceSoFar = Number.MAX_VALUE;
+  let maxProfitSoFar = 0;
+
+  for (let i = 0; i < prices.length; i++) {
+    const currItem = prices[i];
+
+    // 'currItem' is smaller than 'minPriceSoFar' // update: minPriceSoFar
+    minPriceSoFar = Math.min(currItem, minPriceSoFar);
+
+    const currProfit = currItem - minPriceSoFar;
+    // 'currProfit' is better than 'maxProfitSoFar' // update: maxProfitSoFar
+    maxProfitSoFar = Math.max(maxProfitSoFar, currProfit);
+  }
+  return maxProfitSoFar;
+}
 ```
 {% endtab %}
 {% endtabs %}
