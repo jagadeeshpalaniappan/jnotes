@@ -129,6 +129,26 @@ function maxSubArray(inputArr) {
 ## [3. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)
 
 {% tabs %}
+{% tab title="1" %}
+
+{% endtab %}
+
+{% tab title="2" %}
+
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
+{% tab title="1" %}
+
+{% endtab %}
+
+{% tab title="2" %}
+
+{% endtab %}
+{% endtabs %}
+
+{% tabs %}
 {% tab title="Question" %}
 Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
 
