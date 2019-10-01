@@ -502,16 +502,139 @@ function maxProfit(prices) {
 
 {% tabs %}
 {% tab title="Question" %}
-...
+Design a **Stack** data-structure that supports push, pop, top, and retrieving the minimum element in constant time O\(1\).
+
+* **push\(x\)** -- Push element x onto stack.
+* **pop\(\)** -- Removes the element on top of the stack.
+* **top\(\)** -- Get the top element.
+* **getMin\(\)** -- Retrieve the minimum element in the stack.
+
+**Example:**
+
+```text
+MinStack minStack = new MinStack();
+minStack.push(-2);
+minStack.push(0);
+minStack.push(-3);
+minStack.getMin();   --> Returns -3.
+minStack.pop();
+minStack.top();      --> Returns 0.
+minStack.getMin();   --> Returns -2.
+```
 {% endtab %}
 
 {% tab title="Video" %}
 
 {% endtab %}
 
+{% tab title="Code\(wrong\)" %}
+```javascript
+class MinStack {
+    constructor() {
+        this.stack = [];
+        this.min = Number.MAX_VALUE;
+    }
+    push(x) {
+        const min = typeof this.getMin() === 'number' ? Math.min(x, this.getMin()) : x;
+  this.stack.push({val: x, min});
+    }
+    pop() {
+        return this.stack.pop();
+    }
+    top() {
+        return this.stack.length ? this.getLast().val : null;
+    }
+    getMin() {
+        return this.stack.length ? this.getLast().min : null;
+    }
+    getLast() {
+        return this.stack[this.stack.length - 1];
+    }
+
+}
+
+
+// NOTE: This is WRONG-ANSWER
+// while 'pushing' new val (this can update the minVal)
+// But while 'poping' (this doesn't update the current minVal)
+// This solution doesn't track minVal for eachRecord
+```
+{% endtab %}
+
 {% tab title="Code" %}
 ```javascript
-....
+/*
+  Sol1: [BEST] keep track currMin for each item we push
+  push, pop, top, getMin --> O(1) Time & Space
+  [ 
+    {val: 1, currMin: 1}, 
+    {val: 2, currMin: 1},
+    {val: -5, currMin: -5}, 
+    {val: 3, currMin: -5},.....
+  ]
+
+  // getMin: lastItem.currMin
+*/
+class MinStack {
+  constructor() {
+    this.stack = [];
+  }
+  push(x) {
+    const currMin =
+      typeof this.getMin() === "number" ? Math.min(x, this.getMin()) : x;
+    this.stack.push({ val: x, currMin });
+  }
+  pop() {
+    return this.stack.pop();
+  }
+  top() {
+    return this.stack.length ? this.getLast().val : null;
+  }
+  getMin() {
+    return this.stack.length ? this.getLast().currMin : null;
+  }
+  getLast() {
+    return this.stack[this.stack.length - 1];
+  }
+}
+
+```
+{% endtab %}
+
+{% tab title="Result Walkthrough" %}
+```javascript
+
+console.log("MinStack");
+
+const minStack = new MinStack();
+minStack.push(1);
+minStack.push(2);
+// [1, 2]
+
+console.log(minStack.getMin()); // 1
+
+minStack.push(3);
+minStack.push(-2);
+minStack.push(4);
+minStack.push(5);
+// [1, 2, 3, -2, 4, 5]
+
+console.log(minStack.getMin()); // -2
+console.log(minStack.top()); // 5
+
+minStack.pop();
+// [1, 2, 3, -2, 4]
+
+console.log(minStack.top()); // 4
+console.log(minStack.getMin()); // -2
+
+minStack.pop();
+minStack.pop();
+// [1, 2, 3]
+
+console.log(minStack.top()); // 3
+console.log(minStack.getMin()); // 1
+
 ```
 {% endtab %}
 {% endtabs %}

@@ -83,7 +83,7 @@ Design and implement a data structure for [Least Recently Used \(LRU\) cache](ht
 {% embed url="https://www.youtube.com/watch?v=S6IfqDXWa10" %}
 {% endtab %}
 
-{% tab title="Explain Solution" %}
+{% tab title="Result Walkthrough" %}
 **Solution:  `HashMap` + `DoublyLinkedList`** 
 
 * `HM`: for quick access // **get**, add, remove in O\(1\) time 
