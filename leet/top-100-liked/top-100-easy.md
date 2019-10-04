@@ -643,52 +643,415 @@ console.log(minStack.getMin()); // 1
 
 {% tabs %}
 {% tab title="Question" %}
-...
+You are climbing a stair case. It takes _n_ steps to reach to the top.
+
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+**Note:** Given _n_ will be a positive integer.
+
+**Example 1:**
+
+```text
+Input: 2
+Output: 2
+Explanation: There are two ways to climb to the top.
+1. 1 step + 1 step
+2. 2 steps
+```
+
+**Example 2:**
+
+```text
+Input: 3
+Output: 3
+Explanation: There are three ways to climb to the top.
+1. 1 step + 1 step + 1 step
+2. 1 step + 2 steps
+3. 2 steps + 1 step
+```
+{% endtab %}
+
+{% tab title="QExplained" %}
+```javascript
+For '2' steps, 
+way1: u can take '1-step' (2 times)   ===> (1 + 1)
+way2: u can take '2-step' (1 time)    ===> 2
+Ans: noOfWays ==> 2
+
+
+For '3' steps, 
+way1: u can take '1-step' (3 times)   ===> (1 + 1 + 1)
+way2: u can take '2-step' (1 time)  +  take '1-step' (1 time)   ===> (2 + 1)
+way3: u can take '1-step' (1 time)  +  take '2-step' (1 time)   ===> (1 + 2)
+Ans: noOfWays ==> 3
+
+For '4' steps, 
+way1: u can take '1-step' (4 times)   ===> (1 + 1 + 1 + 1)
+way2: u can take '2-step' (1 time)  +  take '2-step' (1 time)   ===> (2 + 2)
+way3: u can take '2-step' (1 time)  +  take '1-step' (2 time)   ===> (2 + 2)
+way4: u can take '1-step' (2 time)  +  take '2-step' (1 time)   ===> (2 + 2)
+way5: u can take '1-step' (1 time)  +  take '2-step' (1 time)  +  take '1-step' (1 time) ===> (1 + 2)
+Ans: noOfWays ==> 5
+```
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=NFJ3m9a1oJQ" %}
 {% endtab %}
 
-{% tab title="Code" %}
+{% tab title="Formula" %}
+```bash
+------------------------------------------------------------------------
+Solution: Formula
+------------------------------------------------------------------------
+if we can only take ('1-step' or '2-step' )at a time
+f(n) = f(n-1) + f(n-2)
+
+
+if we can only take ('1-step' or '3-step' )at a time
+f(n) = f(n-1) + f(n-3)
+
+------------------------------------------------------------------------
+Base Case:: f(1 steps) = 1 way, f(0 steps) = 1 way, f(-x steps) = 1 way
+------------------------------------------------------------------------
+for '0' steps --> u can make only one distinct way : take '0-step' (1 time) // which means doing nothing
+for '1' steps --> u can make only one distinct way : take '1-step' (1 time)
+
+
+***for any negative values,
+for '-4' steps --> u can make only one distinct way : take '0-step' (1 time) // which means doing nothing
+------------------------------------------------------------------------
+```
+{% endtab %}
+
+{% tab title="PPT" %}
+{% embed url="https://drive.google.com/open?id=1HXCxrhPcw5vHx8SxaLxfeDE\_MzhLc-DirRTUZsSLtac" %}
+{% endtab %}
+
+{% tab title="Sol1" %}
 ```javascript
-....
+
+// Sol1: Recursion (memoized) (DP: top-to-bottom-approach)
+// Time Complexity: O(n) // Space Complexity: O(n)  extraSpace: stack-space
+
+function climbStairs1(n, memo) {
+  // Base Case:: f(0 steps) = 1 way, f(-x steps) = 0 way
+  if (n < 0) {
+    return 0;
+  }
+
+  // only 1 distinct way to climb 1 steps is, We take 1 step.
+  if (n == 0) {
+    return 1;
+  }
+
+  // get: form cache (if available)
+  if (memo[n] > 0) {
+    return memo[n];
+  }
+
+  // if we can only take 1 or 2 steps
+  // f(n) = f(n-1) + f(n-2)
+  const currNoOfWays = climbStairs1(n - 1, memo) + climbStairs1(n - 2, memo);
+
+  // cache it
+  memo[n] = currNoOfWays;
+  return currNoOfWays;
+}
+
+function climbStairsHelper(n) {
+  const memo = [];
+  return climbStairs1(n, memo);
+}
+
+// 3 steps
+console.log(climbStairsHelper(3)); // 3 ways
+// 6 steps
+console.log(climbStairsHelper(6)); // 13 ways
+```
+{% endtab %}
+
+{% tab title="Sol2" %}
+```javascript
+// Soln2: Using extraArray (DP: bottom-to-top-approach)
+// Time Complexity: O(n) // Space Complexity: O(n)  extraSpace: tmpArray
+
+/*
+noOfSteps ---->          0   1   2   3   4   5    6
+noOfWays  ---->        [ 1,  1,  2,  3,  5,  8,  13]
+
+
+######## How? ########
+
+// Base Case:: f(1 steps) = 1 way, f(0 steps) = 1 way
+for '0' steps --> u can make only one distinct way : take '0-step' (1 time) // which means doing nothing
+for '1' steps --> u can make only one distinct way : take '1-step' (1 time)
+
+noOfSteps ---->          0   1
+noOfWays  ---->        [ 1,  1 ]
+
+
+------------------------------------------------------------------------
+
+if we can only take ('1-step' or '2-step' ) at a time
+f(n) = f(n-1) + f(n-2)
+------------------------------------------------------------------------
+
+For '2' steps, f(2steps) ==> f(1steps) + f(0steps)
+noOfSteps ---->          0   1   2
+noOfWays  ---->        [ 1,  1,  2 ]
+Ans: noOfWays ==> 2
+
+For '3' steps, f(3steps) ==> f(2steps) + f(1steps)
+noOfSteps ---->          0   1   2   3
+noOfWays  ---->        [ 1,  1,  2,  3 ]
+Ans: noOfWays ==> 3
+
+For '4' steps, f(4steps) ==> f(3steps) + f(2steps)
+noOfSteps ---->          0   1   2   3   4
+noOfWays  ---->        [ 1,  1,  2,  3,  5]
+Ans: noOfWays ==> 3
+
+*/
+
+function climbStairs(n) {
+  // Base Case:: f(1 steps) = 1 way, f(0 steps) = 1 way
+  const dp = [1, 1];
+
+  // Note: 'n' is noOfSteps, iterate untill 'n steps' (NOT n-1 steps)
+  for (let i = 2; i <= n; i++) {
+    // if we can only take 1 or 2 steps
+    // f(n) = f(n-1) + f(n-2)
+    dp[i] = dp[i - 1] + dp[i - 2];
+  }
+
+  return dp[n];
+}
+
+// 6 steps
+console.log(climbStairs(6)); // 13 ways
+```
+{% endtab %}
+
+{% tab title="Sol3 \[BEST\]" %}
+```javascript
+// Sol3: [BEST] [SOLN2-EXTENDED] Without using extraArray (DP: bottom-to-top-approach)
+// Time Complexity: O(n) // Space Complexity: O(1)
+function climbStairs3(n) {
+  let res = 0;
+  // Base Case:: f(1 steps) = 1 way, f(0 steps) = 1 way
+  // const dp = [1, 1];
+  const prev = 1; // 0 steps
+  let curr = 1; // 1 steps
+
+  // Note: 'n' is noOfSteps, iterate untill 'n steps' (NOT n-1 steps)
+  for (let i = 2; i <= n; i++) {
+    const currTmp = curr; // store: 'curr'
+
+    curr = curr + prev;
+
+    // for nextIter, make the curr as 'prev'
+    prev = currTmp;
+  }
+
+  return curr;
+}
+
+console.log(climbStairs3(6)); // 13 ways
 ```
 {% endtab %}
 {% endtabs %}
 
-## [9. Move Zeroes](https://leetcode.com/problems/move-zeroes)
+## [9. Move Zeroes to Last](https://leetcode.com/problems/move-zeroes)
 
 {% tabs %}
 {% tab title="Question" %}
-...
+Given an array `nums`, write a function to move all `0`'s to the end of it while maintaining the relative order of the non-zero elements.
+
+**Example:**
+
+```text
+Input: [0,1,0,3,12]
+Output: [1,3,12,0,0]
+```
+
+**Note**:
+
+1. You must do this **in-place** without making a copy of the array.
+2. Minimize the total number of operations.
 {% endtab %}
 
 {% tab title="Video" %}
+{% embed url="https://www.youtube.com/watch?v=1PEncepEIoE" %}
 
+{% embed url="https://www.youtube.com/watch?v=PEr3JB9AAm0" %}
 {% endtab %}
 
 {% tab title="Code" %}
 ```javascript
-....
+// Sol2: [BEST] Swap '0' with values
+// 1. move: 'currVal' to 'lastZeroIndex'
+// 2. move: 'lastZeroIndexVal' to 'currIndex'
+// Time Complexity: O(n)  // Space Complexity: O(1)
+
+function moveZeroes(inputArr) {
+  let lastZeroIndex = 0;
+
+  for (let i = 0; i < inputArr.length; i++) {
+    // if the 'currVal' is not 0, swap: 'currVal' with 'lastZeroIndex'
+    if (inputArr[i] != 0) {
+      //swap:
+      const currVal = inputArr[i];
+      const lastZeroIndexVal = inputArr[lastZeroIndex]; // always 'zero'
+
+      // 1. move: 'currVal' to 'lastZeroIndex'
+      inputArr[lastZeroIndex] = currVal; // arr[lastZeroIndex] <---- arr [currIndex]
+
+      // 2. move: 'lastZeroIndexVal' to 'currIndex'
+      inputArr[i] = lastZeroIndexVal; // arr[currIndex] <---- arr [lastZeroIndex]
+
+      // assume: nextItem is 'zero'
+      lastZeroIndex++;
+    }
+  }
+}
+
+const arr1 = [1, 2, 0, 4, 0, 3];
+moveZeroes(arr1);
+console.log(arr1); // [1, 2, 4, 3, 0, 0]
+```
+{% endtab %}
+
+{% tab title="Result Walkthrough" %}
+```bash
+'*': lastZeroIndex
+'#': currIndex
+
+lastZeroIndex=0;
+
+[1, 2, 0, 4, 0, 3] ==> (nonZeroItemFOund=> swap(currItem, lastZeroIndex)) [*#1, 2, 0, 4, 0, 3] ==> lastZeroIndex-->1
+ *#                                                 0           0
+
+[1, 2, 0, 4, 0, 3] ==> (nonZeroItemFOund=> swap(currItem, lastZeroIndex)) [1, *#2, 0, 4, 0, 3] ==> lastZeroInde-->2
+    *#                                              1           1                                                
+
+
+[1, 2, 0, 4, 0, 3] ==> lastZeroIndex-->2
+       *#
+
+[1, 2, 0, 4, 0, 3] ==> ==> (nonZeroItemFOund=> swap(currItem, lastZeroIndex)) [1, 2, #4, *0, 0, 3] ==> lastZeroIndex-->3
+       *  #                                            3           2
+
+
+
+[1, 2, 0, 4, 0, 3] ==> lastZeroIndex-->3
+             *#
+
+[1, 2, 0, 4, 0, 3] ==> ==> (nonZeroItemFOund=> swap(currItem, lastZeroIndex)) [1, 2, 4, #3, 0, *0] ==> lastZeroIndex-->4
+             *  #                                        5           3
+
 ```
 {% endtab %}
 {% endtabs %}
 
-## [10. Symmetric Tree](https://leetcode.com/problems/symmetric-tree)
+## [10. Is this BinaryTree 'Symmetric' or Not](https://leetcode.com/problems/symmetric-tree)
 
 {% tabs %}
 {% tab title="Question" %}
-...
+101. Symmetric Tree
+
+Given a binary tree, check whether it is a mirror of itself \(ie, symmetric around its center\).
+
+For example, this binary tree `[1,2,2,3,4,4,3]` is symmetric:
+
+```text
+    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3
+```
+
+But the following `[1,2,2,null,3,null,3]` is not:
+
+```text
+    1
+   / \
+  2   2
+   \   \
+   3    3
+```
+
+**Note:**  
+Bonus points if you could solve it both recursively and iteratively.
+{% endtab %}
+
+{% tab title="QExplain" %}
+```bash
+
+    1
+   / \
+  2    2     ====> isSymmetric ==> true
+ / \  / \
+3  4  4  3
+
+
+    1
+   / \
+  2    2     ====> isSymmetric ==> false
+ / \  / \
+3  4  5  3
+```
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=XV7Sg2hJO3Q" %}
 {% endtab %}
 
 {% tab title="Code" %}
 ```javascript
-....
+
+// Sol1: [BEST]:
+// Time Complexity: O(n)
+// Space Complexity: O(h)  extraSpace: reccursive-stack-space (h --> height of the Tree)
+/*
+
+------------------------------------------------------------------------
+Formula or Rules:
+------------------------------------------------------------------------
+
+leftNode === null && rightNode == null
+-or-
+1. leftNode.val === rightNode.val
+2. leftNode.right === rightNode.left
+3. leftNode.left === rightNode.right
+
+----
+otherwise: false
+-----------------------------------------------------------------------
+*/
+
+function isMirror(leftNode, rightNode) {
+  // base case:
+  // if bothNodes are 'null' // isSymmetric
+  if (leftNode == null && rightNode == null) return true;
+
+  // if oneNode is 'null' and otherNode is 'not-null' // isNotSymmetric
+  if (leftNode == null || rightNode == null) return false;
+
+  // if bothNodes has 'sameValue' and ..... // isSymmetric
+  return (
+    leftNode.val == rightNode.val &&
+    isMirror(leftNode.right, rightNode.left) &&
+    isMirror(leftNode.left, rightNode.right)
+  );
+}
+
+function isSymmetric(root) {
+  return isMirror(root, root);
+}
+
+class TreeNode {}
 ```
 {% endtab %}
 {% endtabs %}
