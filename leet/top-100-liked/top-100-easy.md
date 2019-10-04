@@ -773,8 +773,8 @@ console.log(climbStairsHelper(6)); // 13 ways
 
 {% tab title="Sol2" %}
 ```javascript
-// Soln2: Using extraArray (DP: bottom-to-top-approach)
-// Time Complexity: O(n) // Space Complexity: O(n)  extraSpace: tmpArray
+// Soln2: Using 'dpArray' [DP: BOTTOM-UP-APPROACH]
+// Time Complexity: O(n) // Space Complexity: O(n)  extraSpace: 'dpArray'
 
 /*
 noOfSteps ---->          0   1   2   3   4   5    6
@@ -835,7 +835,7 @@ console.log(climbStairs(6)); // 13 ways
 
 {% tab title="Sol3 \[BEST\]" %}
 ```javascript
-// Sol3: [BEST] [SOLN2-EXTENDED] Without using extraArray (DP: bottom-to-top-approach)
+// Sol3: [BEST] [SOLN2-EXTENDED] Without using 'dpArray' [DP: BOTTOM-UP-APPROACH]
 // Time Complexity: O(n) // Space Complexity: O(1)
 function climbStairs3(n) {
   let res = 0;
@@ -859,6 +859,10 @@ function climbStairs3(n) {
 
 console.log(climbStairs3(6)); // 13 ways
 ```
+{% endtab %}
+
+{% tab title="Related" %}
+11. House Robber
 {% endtab %}
 {% endtabs %}
 
@@ -1062,16 +1066,118 @@ class TreeNode {}
 
 {% tabs %}
 {% tab title="Question" %}
-...
+You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and **it will automatically contact the police if two adjacent houses were broken into on the same night**.
+
+Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight **without alerting the police**.
+
+**Example 1:**
+
+```text
+Input: [1,2,3,1]
+Output: 4
+Explanation: Rob house 1 (money = 1) and then rob house 3 (money = 3).
+             Total amount you can rob = 1 + 3 = 4.
+```
+
+**Example 2:**
+
+```text
+Input: [2,7,9,3,1]
+Output: 12
+Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
+             Total amount you can rob = 2 + 9 + 1 = 12.
+```
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=xlvhyfcoQa4" %}
 {% endtab %}
 
-{% tab title="Code" %}
+{% tab title="DP" %}
+{% embed url="https://drive.google.com/open?id=1PbQDq9cd85p0UcLbVoAZ1heuqSrO8tTF4mq6swsGC5Q" %}
+{% endtab %}
+
+{% tab title="Sol1" %}
 ```javascript
-....
+/*
+houseIndex      ---->           0   1   2   3   4
+houseMoney      ---->         [ 2,  7,  9,  3,  1 ]
+maxICanSteelSoFar(dpArr) -->  [ 2,  7, 11, 11,  12 ]
+*/
+
+// Sol1: Using 'dpArray' [DP: BOTTOM-UP-APPROACH]
+// Time Complexity: O(n) // Space Complexity: O(n)  extraSpace: 'dpArray'
+
+function rob(arr) {
+  // base case:
+  // if 'no-house', max i can steel is 0
+  if (arr.length === 0) return 0;
+  // if '1-house', max i can steel is '1stHouseMoney'
+  if (arr.length === 1) return arr[0];
+
+  // dpArr: maxICanSteelSoFar
+  const dp = [];
+  // if '1-house', max i can steel is '1stHouseMoney'
+  dp[0] = arr[0];
+  // if '2-houses', max i can steel is '1stHouseMoney' or '2ndHouseMoney' (whichever is maximum)
+  dp[1] = Math.max(arr[0], arr[1]);
+
+  for (let i = 2; i < arr.length; i++) {
+    // with 'currHouseItem' + lastPossibleMax -- i can get 'currMaxIcanSteel'
+    // why dp[i-2]? why not dp[i-1]? // becoz i cant steel previous house
+    const currMaxTemp = arr[i] + dp[i - 2];
+
+    // lastMaxIcanSteel
+    const lastMaxTemp = dp[i - 1];
+
+    // if: max('currMaxIcanSteel' or 'lastMaxIcanSteel')
+    // that is the bestIcanSteel as of now
+    dp[i] = Math.max(currMaxTemp, lastMaxTemp);
+  }
+
+  return dp[dp.length - 1];
+}
+
+console.log(rob([2, 7, 9, 3, 1]));
+```
+{% endtab %}
+
+{% tab title="Sol2\[BEST\]" %}
+```javascript
+// if we  clearly see, we dont need to maintain to track all the house 'bextIcanSteel'
+
+// Soln2: without using 'dpArray' [SOL1-EXTENDED] [DP: BOTTOM-UP-APPROACH]
+// Time Complexity: O(n) // Space Complexity: O(1)
+function rob(arr) {
+  // base case:
+  // if 'no-house', max i can steel is 0
+  if (arr.length === 0) return 0;
+  // if '1-house', max i can steel is '1stHouseMoney'
+  if (arr.length === 1) return arr[0];
+
+  // lastMaxIcanSteel
+  let lastMax = arr[0];
+  // currMaxIcanSteel
+  let currMax = Math.max(arr[0], arr[1]);
+
+  for (let i = 2; i < arr.length; i++) {
+    // with 'currHouseItem' + lastPossibleMax -- i can get 'currMaxIcanSteel'
+    // why dp[i-2]? why not dp[i-1]? // becoz i cant steel previous house
+    const currMaxTemp = arr[i] + lastMax;
+
+    // lastMaxIcanSteel
+    const lastMaxTemp = currMax;
+
+    // if: max('currMaxIcanSteel' or 'lastMaxIcanSteel')
+    // that is the bestIcanSteel as of now
+    currMax = Math.max(currMaxTemp, lastMaxTemp);
+
+    lastMax = lastMaxTemp;
+  }
+
+  return currMax;
+}
+
 ```
 {% endtab %}
 {% endtabs %}
