@@ -1182,7 +1182,7 @@ function rob(arr) {
 {% endtab %}
 {% endtabs %}
 
-## [12. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list)
+## [12. Is 'Palindrome' Linked List](https://leetcode.com/problems/palindrome-linked-list)
 
 {% tabs %}
 {% tab title="Question" %}
@@ -1207,12 +1207,79 @@ Could you do it in O\(n\) time and O\(1\) space?
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=oZuR2-AKkXE&t=148s" %}
 {% endtab %}
 
 {% tab title="Code" %}
 ```javascript
-....
+
+/*
+ 1. split: into two LinkedList
+ 2. reverse: the 'secondLinkedList' 
+ 3. compare: 'firstLinkedList' & 'secondLinkedList'
+
+ How do we 'split into two LinkedList'?
+    1.1 find the 'middleNode' (using slowPtr & fastPtr)
+        -when 'fastPtr' reaches "lastNode", 'slowPtr' will reach the "middleNode"
+        - cornerCase:  for 'odd' noOfItems, ignore the 'middleNode'
+
+    1.2 so the 'middleNode' is our 'secondLinkedListHead'
+    
+*/
+// Time complexity : O(n) // Space complexity : O(1)  
+// Note: noExtraSpaceUsed:  we didn't create any extra space for secondLinkedList
+function isPalindrome(head) {
+
+  // 1. split: into two LinkedList
+  // 1.1 find the 'middleNode' (using slowPtr & fastPtr)
+  let slow = head;
+  let fast = head;
+  while (fast != null && fast.next != null) {
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  // 1.2
+  let middleNode = slow;
+  if (fast != null) {
+    // if 'fast' is notNull then is oddList, ignore the 'middleNode'
+    middleNode = slow.next;
+  }
+
+  // 2. reverse: the 'secondLinkedList'
+  let secondLinkedListHead = reverse(middleNode);
+  let firstLinkedListHead = head;
+
+  // 3. compare: 'firstLinkedList' & 'secondLinkedList'
+  while (secondLinkedListHead != null) {
+    if (firstLinkedListHead.val != secondLinkedListHead.val) {
+      return false;
+    }
+    firstLinkedListHead = firstLinkedListHead.next;
+    secondLinkedListHead = secondLinkedListHead.next;
+  }
+  return true;
+}
+
+
+// Time complexity : O(n) // Space complexity : O(1)
+function reverse(head) {
+  let prev = null;
+  let curr = head;
+
+  // iterate: until lastNode
+  while (curr != null) {
+    let nextTemp = curr.next;
+
+    // reverse:
+    curr.next = prev;
+
+    // next: iteration
+    prev = curr;
+    curr = nextTemp;
+  }
+  return prev;
+}
+
 ```
 {% endtab %}
 {% endtabs %}
@@ -1221,16 +1288,71 @@ Could you do it in O\(n\) time and O\(1\) space?
 
 {% tabs %}
 {% tab title="Question" %}
-...
+* Longest Path between any two points of the Circle is "Diameter of the Circle"
+* **'Longest Path' between any two nodes** of the Tree is "Diameter of the Tree"
+
+Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the '**longest path' between any two nodes in a tree**. This path may or may not pass through the root.
+
+**Example:**  
+Given a binary tree  
+
+
+```text
+          1
+         / \
+        2   3
+       / \     
+      4   5    
+```
+
+Return **3**, which is the length of the path \[4,2,1,3\] or \[5,2,1,3\].
+
+**Note:** The length of path between two nodes is represented by the number of edges between them.
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=ey7DYc9OANo" %}
 {% endtab %}
 
 {% tab title="Code" %}
 ```javascript
-....
+/*
+'Longest Path' between any two nodes of the Tree is "Diameter of the Tree"
+
+1. Find which 'node' has 'maxDiameter'
+
+   # How to find maxDiameter?
+   find: 'diameter' for eachNode in the BinaryTree
+   diameter = leftTreeHeight + rightTreeHeight
+
+    # How to find that 'heightOfTree'?
+    heightOfTree = max(leftTreeHeight, rightTreeHeight) + 1
+
+2. When you find 'diameter' eachNode, update the 'sofarMaxDiameter'
+*/
+
+function height(currNode, sofarMaxDiameter) {
+  // base case:
+  if (currNode == null) {
+    return 0;
+  }
+
+  const leftTreeHeight = height(currNode.left, sofarMaxDiameter);
+  const rightTreeHeight = height(currNode.right, sofarMaxDiameter);
+
+  // also update: sofarMaxDiameter
+  const currDiameter = leftTreeHeight + rightTreeHeight;
+  sofarMaxDiameter.val = Math.max(sofarMaxDiameter.val, currDiameter);
+
+  // heightOfTree
+  return Math.max(leftTreeHeight, rightTreeHeight) + 1;
+}
+
+function diameterOfBinaryTree(root) {
+  const sofarMaxDiameter = { val: 0 };
+  height(root, sofarMaxDiameter);
+  return sofarMaxDiameter.val;
+}
 ```
 {% endtab %}
 {% endtabs %}
