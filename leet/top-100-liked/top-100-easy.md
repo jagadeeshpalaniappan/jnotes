@@ -1357,20 +1357,106 @@ function diameterOfBinaryTree(root) {
 {% endtab %}
 {% endtabs %}
 
-## [14. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle)
+## [14. Linked List has 'Cycle'](https://leetcode.com/problems/linked-list-cycle)
 
 {% tabs %}
 {% tab title="Question" %}
-...
+Given a linked list, determine if it has a **cycle** in it.
+
+To represent a cycle in the given linked list, we use an integer `pos` which represents the position \(0-indexed\) in the linked list where tail connects to. If `pos` is `-1`, then there is no cycle in the linked list.
+
+**Example 1:**
+
+```text
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, where tail connects to the second node.
+```
+
+![](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png)
+
+**Example 2:**
+
+```text
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, where tail connects to the first node.
+```
+
+![](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test2.png)
+
+**Example 3:**
+
+```text
+Input: head = [1], pos = -1
+Output: false
+Explanation: There is no cycle in the linked list.
+```
+
+![](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist_test3.png)
 {% endtab %}
 
 {% tab title="Video" %}
+{% embed url="https://www.youtube.com/watch?v=zbozWoMgKW0" %}
 
+[https://www.youtube.com/watch?v=MFOAbpfrJ8g](https://www.youtube.com/watch?v=MFOAbpfrJ8g)
 {% endtab %}
 
-{% tab title="Code" %}
+{% tab title="Sol1" %}
 ```javascript
-....
+/*
+Sol1: Using 'HashSet'
+
+// Time complexity : O(n)
+// Space complexity : O(n)  extraSpace: for 'Set'
+*/
+function hasCycle(head) {
+  const nodesSeen = new Set();
+  while (head != null) {
+    if (nodesSeen.has(head)) {
+      // it has a 'loop'
+      return true;
+    } else {
+      nodesSeen.add(head);
+    }
+    head = head.next;
+  }
+
+  // it doesnt have a 'loop'
+  return false;
+}
+```
+{% endtab %}
+
+{% tab title="Sol2: \[BEST\]" %}
+```javascript
+/*
+Sol2: [BEST] Using 'slow & fast' pointers
+
+// Time complexity : O(n + k) k: no-of-iterations-to-reach-slow-and-fast-node
+// Space complexity : O(n)  extraSpace: for 'Set'
+*/
+function hasCycle(head) {
+  if (head == null || head.next == null) {
+    return false;
+  }
+
+  let slow = head;
+  let fast = head;
+
+  // if: anyone reaches 'NULL', that is end of LL, so 'NO-LOOP' availble
+  while (slow && fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    if (slow === fast) {
+      // if it is a 'LOOP', at some iteration 'slow' & 'fast' will point to the sameNode
+      return true;
+    }
+  }
+  return false;
+}
+
 ```
 {% endtab %}
 {% endtabs %}
@@ -1385,13 +1471,144 @@ function diameterOfBinaryTree(root) {
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=zOyOwDEF1Rc" %}
 {% endtab %}
 
-{% tab title="Code" %}
+{% tab title="Sol1" %}
 ```javascript
-....
+/*
+Sol1: Using 'HashMap'
+*/
+// Time complexity : O(n) // Space complexity : O(n)  extraSpace: for 'Map'
+function majorityElement(nums) {
+  let majorityItem = 0;
+  const countMap = new Map();
+
+  for (const no of nums) {
+    if (countMap.has(no)) {
+      // existing
+      countMap.set(no, countMap.get(no) + 1);
+    } else {
+      // new
+      countMap.set(no, 1);
+    }
+    if (countMap.get(no) > nums.length / 2) {
+      majorityItem = no;
+      break;
+    }
+  }
+
+  return majorityItem;
+}
 ```
+{% endtab %}
+
+{% tab title="Sol2" %}
+```javascript
+/*
+Sol2: Using 'Sort'
+*/
+// Time complexity : O(nlogn) // Space complexity : O(1)
+function majorityElement(nums) {
+  // sort
+  nums.sort((a, b) => a - b);
+  // middleItem
+  return nums[Math.floor(nums.length / 2)];
+}
+
+```
+{% endtab %}
+
+{% tab title="Sol3: \[BEST\]" %}
+```javascript
+/*
+Sol3: [BEST] Boyer-Moore Voting Algorithm
+Assumption: majorityElement always exists in the array
+*/
+// Time complexity : O(n) // Space complexity : O(1)
+function majorityElement(array) {
+  // Step 1: Find max element
+  let winnerCandidate = null;
+  let winnerCandidateVoteCount = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (winnerCandidateVoteCount === 0) {
+      // assume: currItem is our 'winnerCandidate'
+      winnerCandidate = array[i];
+      winnerCandidateVoteCount = 1;
+    } else {
+      if (winnerCandidate === array[i]) {
+        // saw: 'winnerCandidateVote'
+        // increment: 'winnerCandidateVoteCount'
+        winnerCandidateVoteCount++;
+      } else {
+         // saw: 'otherCandidateVote'
+        // decrement: 'winnerCandidateVoteCount'
+        winnerCandidateVoteCount--;
+      }
+    }
+  }
+
+  return winnerCandidate;
+}
+```
+{% endtab %}
+
+{% tab title="Sol3: \[Modified\]" %}
+```javascript
+/*
+Sol3: [BEST] Boyer-Moore Voting Algorithm
+Assumption: 'majorityElement' may or may not exists in the array
+*/
+function majorityElementModified(array) {
+
+  // Step 1: Find 'winnerCandidate'
+  let winnerCandidate = null;
+  let winnerCandidateVoteCount = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    if (winnerCandidateVoteCount === 0) {
+      // assume: currItem is our 'winnerCandidate'
+      winnerCandidate = array[i];
+      winnerCandidateVoteCount = 1;
+    } else {
+      if (winnerCandidate === array[i]) {
+        // saw: 'winnerCandidateVote'
+        // increment: 'winnerCandidateVoteCount'
+        winnerCandidateVoteCount++;
+      } else {
+         // saw: 'otherCandidateVote'
+        // decrement: 'winnerCandidateVoteCount'
+        winnerCandidateVoteCount--;
+      }
+    }
+  }
+
+
+  if (winnerCandidateVoteCount == 0) {
+    // 'winnerCandidate' not found
+    return null;
+  }
+
+  // Step 2: double-check if 'winnerCandidate' is majority element?
+  let finalCount = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (winnerCandidate == array[i]) {
+      finalCount++;
+    }
+  }
+
+  // if: finalCount > n.length/2 --> 'winnerCandidate' found
+  return finalCount > array.length / 2 ? winnerCandidate : null;
+}
+
+```
+{% endtab %}
+
+{% tab title="Related" %}
+[https://leetcode.com/problems/majority-element-ii/](https://leetcode.com/problems/majority-element-ii/)
+
+[https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/](https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/)
 {% endtab %}
 {% endtabs %}
 
@@ -1399,37 +1616,76 @@ function diameterOfBinaryTree(root) {
 
 {% tabs %}
 {% tab title="Question" %}
-...
+Given a **non-empty** array of integers, every element appears _twice_ except for one. Find that single one.
+
+**Note:**
+
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+**Example 1:**
+
+```text
+Input: [2,2,1]
+Output: 1
+```
+
+**Example 2:**
+
+```text
+Input: [4,1,2,1,2]
+Output: 4
+```
 {% endtab %}
 
 {% tab title="Video" %}
+{% embed url="https://www.youtube.com/watch?v=-\_6l\_ijmcgs" %}
 
+[https://www.youtube.com/watch?v=CvnnCZQY2A0](https://www.youtube.com/watch?v=CvnnCZQY2A0)
 {% endtab %}
 
-{% tab title="Code" %}
+{% tab title="Sol1" %}
 ```javascript
-....
+/*
+Sol1: Using 'HashMap'
+*/
+// Time complexity : O(n) // Space complexity : O(n)  extraSpace: for 'hashSet'
+function singleNumber(nums) {
+  const hashSet = new Set();
+  for (let no of nums) {
+    if (hashSet.has(no)) {
+      hashSet.delete(no);
+    } else {
+      hashSet.add(no);
+    }
+  }
+
+  const itr1 = hashSet.values();
+  const result = itr1.next().value;
+  return result;
+}
+
+```
+{% endtab %}
+
+{% tab title="Sol2: \[BEST\]" %}
+```javascript
+/*
+Sol2: [BEST] Using Bit Manipulation - 'XOR'
+*/
+// Time complexity : O(n) // Space complexity : O(1)
+function singleNumber(nums) {
+  let result = 0;
+  for (let no of nums) {
+    // xor:
+    result ^= no;
+  }
+  return result;
+}
 ```
 {% endtab %}
 {% endtabs %}
 
-..\#. Xxxxxx Yyyyy
 
-{% tabs %}
-{% tab title="Question" %}
-...
-{% endtab %}
-
-{% tab title="Video" %}
-
-{% endtab %}
-
-{% tab title="Code" %}
-```javascript
-....
-```
-{% endtab %}
-{% endtabs %}
 
 ## [17. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists)
 
@@ -1439,12 +1695,83 @@ function diameterOfBinaryTree(root) {
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=\_7byKXAhxyM" %}
 {% endtab %}
 
-{% tab title="Code" %}
+{% tab title="Sol1" %}
 ```javascript
-....
+/*
+Sol1: Using 'HashSet'
+*/
+// Time complexity : O(n) // Space complexity : O(n)  extraSpace: for 'hashSet'
+function getIntersectionNode(headA, headB) {
+  let hashSet = new Set();
+
+  // add: 'aLinkedList' allItems in hashSet
+  let pa = headA;
+  while (pa != null) {
+    hashSet.add(pa);
+    pa = pa.next;
+  }
+
+  if (hashSet.size === 0) {
+    return null;
+  }
+
+  let pb = headB;
+  while (pb != null) {
+    if (hashSet.has(pb)) {
+      // inter-section: found
+      return pb;
+    }
+    pb = pb.next;
+  }
+
+  // no: inter-section: found
+  return null;
+}
+
+```
+{% endtab %}
+
+{% tab title="Sol2: \[BEST\]" %}
+```javascript
+/*
+Sol2: Using 'lengthOfLinkedList'
+*/
+// Time complexity : O(n) // Space complexity : O(1)
+function lengthOfLinkedList(x) {
+  let count = 0;
+  while (x != null) {
+    x = x.next;
+    count++;
+  }
+  return count;
+}
+
+function getIntersectionNode(headA, headB) {
+  let aLen = lengthOfLinkedList(headA);
+  let bLen = lengthOfLinkedList(headB);
+
+  if (aLen > bLen) {
+    const diff = aLen - bLen;
+    for (let i = 0; i < diff; i++) {
+      headA = headA.next;
+    }
+  } else {
+    const diff = bLen - aLen;
+    for (let i = 0; i < diff; i++) {
+      headB = headB.next;
+    }
+  }
+
+  // iteratte: until inter-section found
+  while (headA != headB) {
+    headA = headA.next;
+    headB = headB.next;
+  }
+  return headA;
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -1455,17 +1782,35 @@ function diameterOfBinaryTree(root) {
 
 {% tabs %}
 {% tab title="Question" %}
-...
+* **'height'** of the Tree is the **maxDepth** of the Tree
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=YT1994beXn0" %}
 {% endtab %}
 
 {% tab title="Code" %}
 ```javascript
-....
+// or heightOfBinaryTree
+// Time complexity : O(n) 
+// Space Complexity: O(h)  extraSpace: reccursive-stack-space (h --> height of the Tree)
+function maxDepth(currNode) {
+  // base case:
+  if (currNode == null) {
+    return 0;
+  }
+
+  let leftTreeHeight = maxDepth(currNode.left);
+  let rightTreeHeight = maxDepth(currNode.right);
+
+  return Math.max(leftTreeHeight, rightTreeHeight) + 1;
+}
+
 ```
+{% endtab %}
+
+{% tab title="Related" %}
+* [13. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree)
 {% endtab %}
 {% endtabs %}
 
@@ -1477,12 +1822,71 @@ function diameterOfBinaryTree(root) {
 {% endtab %}
 
 {% tab title="Video" %}
+{% embed url="https://www.youtube.com/watch?v=GHfmIz5ZnWk" %}
 
+[https://www.youtube.com/watch?v=N6uiqEbF0o0](https://www.youtube.com/watch?v=N6uiqEbF0o0)
 {% endtab %}
 
-{% tab title="Code" %}
+{% tab title="Sol1" %}
 ```javascript
-....
+/*
+Sol1: [EASY] Using HashSet
+[WRONG] But it uses extraSpace
+*/
+// Time complexity : O(n) // Space complexity : O(n)  extraSpace: for 'hashSet'
+function findDisappearedNumbers(nums) {
+  let result = [];
+  const hashSet = new Set(nums);
+
+  for (let i = 0; i < nums.length; i++) {
+    const val = i + 1;  
+    if (!hashSet.has(val)) {
+      result.push(val);
+    }
+  }
+  return result;
+}
+```
+{% endtab %}
+
+{% tab title="Sol2: \[BEST\]" %}
+```javascript
+/*
+Sol2: [BEST] By Marking arrIndex's value as 'NEGATIVE'
+arr[absVal-1] = -arr[absVal-1];
+
+If i see a number, marking that numbr's --> array[index]'s value as 'NEGATIVE'
+E.g. saw, numbr: 8 --> arr[8-1] = - arr[8-1]
+
+- In this way all the numbers that we have seen will be marked as negative. 
+- In the second iteration, if a value is not marked as negative (if we find a +ve numbr)
+    - That means 'thatIndex + 1' is a disappeared value
+    - so just add it to the resul list.
+*/
+
+// Time complexity : O(n) // Space complexity : O(1)
+function findDisappearedNumbers(nums) {
+  let result = [];
+
+  // 1. marking: all the appeard numbers --> array[index]'s --> value as 'NEGATIVE'
+  for (let i = 0; i < nums.length; i++) {
+    let targetIndex = Math.abs(nums[i]) - 1;
+    if (nums[targetIndex] > 0) {
+      nums[targetIndex] = -nums[targetIndex];
+    }
+  }
+
+  // 2. find: index which has a positiveNo (that 'index+1' --is a--> disappearedVal)
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] > 0) {
+      // positiveNo: found // disappearedVal = index + 1
+      result.push(i + 1);
+    }
+  }
+
+  return result;
+}
+
 ```
 {% endtab %}
 {% endtabs %}
@@ -1495,15 +1899,40 @@ function diameterOfBinaryTree(root) {
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=vdwcCIkLUQI" %}
 {% endtab %}
 
 {% tab title="Code" %}
 ```javascript
-....
+/*
+Sol1: Using Recursion
+*/
+// Time Complexity: O(n) 
+// Space Complexity: O(h)  extraSpace: reccursive-stack-space (h --> height of the Tree)
+function invertTree(root) {
+  if (root == null) {
+    return null;
+  }
+  const rightTmp = invertTree(root.right);
+  const leftTmp = invertTree(root.left);
+  root.left = rightTmp;
+  root.right = leftTmp;
+  return root;
+}
+
+/*
+function invertTree(root) {
+  if (root == null) return null;
+  root.left = invertTree(root.right);
+  root.right = invertTree(root.left);
+  return root;
+}
+*/
 ```
 {% endtab %}
 {% endtabs %}
+
+
 
 ## [21. Merge Two Binary Trees](https://leetcode.com/problems/merge-two-binary-trees)
 
