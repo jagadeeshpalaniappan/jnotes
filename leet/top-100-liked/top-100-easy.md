@@ -1942,12 +1942,39 @@ function invertTree(root) {
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=p3vVYNngyxs" %}
 {% endtab %}
 
 {% tab title="Code" %}
 ```javascript
-....
+/*
+617. Merge Two Binary Trees
+
+https://leetcode.com/problems/path-sum-iii/
+https://www.youtube.com/watch?v=p3vVYNngyxs
+*/
+
+/*
+ Sol1: Using Recursion
+*/
+// Time complexity : O(m) A total of 'm' nodes need to be traversed.
+// Here, 'm' represents the minimum number of nodes from the two given trees.
+
+// Space complexity : O(m) The depth of the recursion tree can go upto 'm' in the case of a skewed tree.
+// In average case, depth will be O(log m)
+function mergeTrees(t1, t2) {
+  // base-case:
+  if (t1 == null) return t2;
+  if (t2 == null) return t1;
+  
+  // merge: sum
+  t1.val = t1.val + t2.val;
+
+  t1.left = mergeTrees(t1.left, t2.left);
+  t1.right = mergeTrees(t1.right, t2.right);
+  return t1;
+}
+
 ```
 {% endtab %}
 {% endtabs %}
@@ -1980,12 +2007,96 @@ function invertTree(root) {
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=Hg03KTli9co" %}
 {% endtab %}
 
 {% tab title="Code" %}
 ```javascript
-....
+/*
+581. Shortest Unsorted Continuous Subarray
+
+https://leetcode.com/problems/shortest-unsorted-continuous-subarray/
+https://www.youtube.com/watch?v=Hg03KTli9co
+*/
+
+/*
+ Sol1: Using minIndex & maxIndex
+*/
+// Time complexity : O(n) // Space complexity : O(1)
+function findMinIndex(array, minElement, startIndex) {
+  for (let i = 0; i < startIndex; i++) {
+    if (minElement < array[i]) {
+      return i;
+    }
+  }
+  return startIndex;
+}
+
+function findMaxIndex(array, maxElement, endIndex) {
+  for (let i = array.length - 1; i > endIndex; i--) {
+    if (maxElement > array[i]) {
+      return i;
+    }
+  }
+  return endIndex;
+}
+
+function findUnsortedSubarray(array) {
+  let n = array.length;
+
+  // find: firstOccurence of unSortedArr from 'firstItem'
+  let startIndex = 0;
+  for (let i = 0; i < n - 1; i++) {
+    if (array[i] > array[i + 1]) {
+      startIndex = i;
+      break;
+    }
+  }
+
+  // find: firstOccurence of unSortedArr from 'lastItem'
+  let endIndex = 0;
+  for (let j = n - 1; j > 0; j--) {
+    if (array[j - 1] > array[j]) {
+      endIndex = j;
+      break;
+    }
+  }
+
+  // Find the minimum and maximum element in the sub array from startIndex to endIndex.
+  let maxElement = array[startIndex];
+  let minElement = array[startIndex];
+
+  for (let i = startIndex + 1; i <= endIndex; i++) {
+    if (maxElement < array[i]) {
+      maxElement = array[i];
+    }
+    if (minElement > array[i]) {
+      minElement = array[i];
+    }
+  }
+
+  // Search the sorted array from 0 to startIndex
+  // to find the index at which minimum element will be in sorted array say, minIndex.
+  let minIndex = findMinIndex(array, minElement, startIndex);
+
+  // Search the sorted array from endIndex to end of array
+  // to find the index at which maximum element will be in sorted array say, maxIndex.
+  let maxIndex = findMaxIndex(array, maxElement, endIndex);
+
+  // Sub array between minIndex to maxIndex is the required sub array.
+  if (minIndex == maxIndex) {
+    console.log("The array is already sorted.");
+    return 0;
+  } else {
+    let subArrLength = 0;
+    // Sub array between minIndex to maxIndex is the required sub array.
+    for (let i = minIndex; i <= maxIndex; i++) {
+      subArrLength++;
+    }
+    return subArrLength;
+  }
+}
+
 ```
 {% endtab %}
 {% endtabs %}
