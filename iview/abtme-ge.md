@@ -1,6 +1,6 @@
 # About Me:
 
-* I work as a **Senior Software Engineer** in GE Digital
+* I work as a **Staff Software Engineer** in GE Digital
 * Its been around **8 years**, I have been working as a **Web Application Developer**
 * In this 8 years, I have got many **Wonderful Opportunities**,
   * to **Learn** and **Work** with End –to- End web applications
