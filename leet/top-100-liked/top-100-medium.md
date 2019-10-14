@@ -1,10 +1,12 @@
 # 2. Top 100 - MEDIUM
 
+## Index
+
 | \# | qId | Title | freqStars |
 | :--- | :--- | :--- | :--- |
-| 1 | 2 | [Add Two Numbers    ](https://leetcode.com/problems/add-two-numbers) | \*\*\*\*\*\* |
+| 1 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers) | \*\*\*\*\*\* |
 | 2 | 146 | [LRU Cache    ](https://leetcode.com/problems/lru-cache) | \*\*\*\*\*\* |
-| 3 | 5 | [Longest Palindromic Substring    ](https://leetcode.com/problems/longest-palindromic-substring) | \*\*\*\*\*\* |
+| 3 | 5 | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring) | \*\*\*\*\*\* |
 | 4 | 200 | [Number of Islands    ](https://leetcode.com/problems/number-of-islands) | \*\*\*\*\* |
 | 5 | 3 | [Longest Substring Without Repeating Characters    ](https://leetcode.com/problems/longest-substring-without-repeating-characters) | \*\*\*\*\* |
 | 6 | 15 | [3Sum    ](https://leetcode.com/problems/3sum) | \*\*\*\*\* |
@@ -64,6 +66,90 @@
 | 60 | 337 | [House Robber III    ](https://leetcode.com/problems/house-robber-iii) | \* |
 
 
+
+## [1. Add Two Numbers](https://leetcode.com/problems/add-two-numbers)
+
+{% tabs %}
+{% tab title="Question" %}
+You are given two **non-empty** linked lists representing two non-negative integers. The digits are stored in **reverse order** and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+**Example:**
+
+```text
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807.
+```
+{% endtab %}
+
+{% tab title="Video" %}
+{% embed url="https://www.youtube.com/watch?v=esZdwGfG7NE" %}
+{% endtab %}
+
+{% tab title="Code" %}
+```javascript
+/*
+Sol1: [BEST] Since 'list1' & 'list2' are already in reverseOrder. It is easy to do addition
+
+  |      |      |
+  V      V      V
+342     342     342
+465     465     465
+----    ----    ----
+  7      07     807
+----    ----    ----
+
+  2 ----> 4 ----> 3
+  5 ----> 6 ----> 4
+ --------------------
+  7 ----> 0 ----> 8
+ --------------------
+
+
+Time complexity : O(max(m,n))   // m: l1.length and n: l2.length
+Space complexity : O(max(m,n))  // resultList.length
+if we dont consider, 'resultList' Space // Space complexity : O(1)
+*/
+function addTwoNumbers(l1, l2) {
+  let resultList = new ListNode(0); // dummyNode
+  let resIter = resultList; // 'resultList' iterator
+
+  let p = l1; // 'l1' iterator
+  let q = l2; // 'l2' iterator
+
+  let carryFwd = 0;
+
+  while (p !== null || q !== null || carryFwd !== 0) {
+    let totalSum = 0;
+
+    if (p !== null) {
+      totalSum = totalSum + p.val;
+      p = p.next; // next: iter
+    }
+    if (q !== null) {
+      totalSum = totalSum + q.val;
+      q = q.next; // next: iter
+    }
+    totalSum = totalSum + carryFwd;
+
+    // totalSumLastDigit:
+    const totalSumLastDigit = totalSum % 10;
+    resIter.next = new ListNode(totalSumLastDigit);
+
+    // totalSumExcludeLastDigit:
+    carryFwd = Math.floor(totalSum / 10);
+
+    resIter = resIter.next; // next: iter
+  }
+
+  // ignore: dummyNode
+  return resultList.next;
+}
+```
+{% endtab %}
+{% endtabs %}
 
 ## 2. LRU
 
@@ -387,15 +473,43 @@ class LRUCache extends LinkedHashMap<Integer, Integer>{
 {% endtab %}
 {% endtabs %}
 
-## \#. Xxxxxx Yyyyy
+## [3. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring) 
 
 {% tabs %}
 {% tab title="Question" %}
-...
+**5. Longest Palindromic Substring**
+
+* Given a string **s**, find the longest palindromic substring in **s**. 
+* You may assume that the maximum length of **s** is 1000.
+
+**Example 1:**
+
+```text
+Input: "babad"
+Output: "bab"
+Note: "aba" is also a valid answer.
+```
+
+**Example 2:**
+
+```text
+Input: "cbbd"
+Output: "bb"
+```
 {% endtab %}
 
 {% tab title="Video" %}
+1. [https://www.youtube.com/watch?v=onkdOAMS63U](https://www.youtube.com/watch?v=onkdOAMS63U)
 
+**DP:  O\(N\)**
+
+1. [https://www.youtube.com/watch?v=obBdxeCx\_Qs](https://www.youtube.com/watch?v=obBdxeCx_Qs)
+2. [https://www.youtube.com/watch?v=Fi5INvcmDos](https://www.youtube.com/watch?v=Fi5INvcmDos)
+
+**Manchester's Alg:  O\(N\)**
+
+1. [https://www.youtube.com/watch?v=kbUiR5YWUpQ](https://www.youtube.com/watch?v=kbUiR5YWUpQ)
+2. [https://www.youtube.com/watch?v=nbTSfrEfo6M](https://www.youtube.com/watch?v=nbTSfrEfo6M)
 {% endtab %}
 
 {% tab title="Code" %}
