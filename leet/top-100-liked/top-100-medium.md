@@ -501,15 +501,21 @@ Output: "bb"
 {% tab title="Video" %}
 1. [https://www.youtube.com/watch?v=onkdOAMS63U](https://www.youtube.com/watch?v=onkdOAMS63U)
 
-**DP:  O\(N\)**
+**DP:**  Time: O\(n\), Space: O\(n^2\)
 
 1. [https://www.youtube.com/watch?v=obBdxeCx\_Qs](https://www.youtube.com/watch?v=obBdxeCx_Qs)
 2. [https://www.youtube.com/watch?v=Fi5INvcmDos](https://www.youtube.com/watch?v=Fi5INvcmDos)
 
-**Manchester's Alg:  O\(N\)**
+\*\*\*\*
 
-1. [https://www.youtube.com/watch?v=kbUiR5YWUpQ](https://www.youtube.com/watch?v=kbUiR5YWUpQ)
-2. [https://www.youtube.com/watch?v=nbTSfrEfo6M](https://www.youtube.com/watch?v=nbTSfrEfo6M)
+**Expand Around Center Alg:**  Time: O\(n^2\), Space: O\(1\)
+
+**Manchester's Alg:**  Time: O\(n\), Space: O\(n\)  `[BEST]`
+
+1. [https://www.youtube.com/watch?v=SV1ZaKCozS4](https://www.youtube.com/watch?v=SV1ZaKCozS4) \[BEST\]
+2. [https://www.youtube.com/watch?v=kbUiR5YWUpQ](https://www.youtube.com/watch?v=kbUiR5YWUpQ)
+3. [https://www.youtube.com/watch?v=nbTSfrEfo6M](https://www.youtube.com/watch?v=nbTSfrEfo6M)
+4. [http://manacher-viz.s3-website-us-east-1.amazonaws.com/\#/](http://manacher-viz.s3-website-us-east-1.amazonaws.com/#/)
 {% endtab %}
 
 {% tab title="Code" %}
