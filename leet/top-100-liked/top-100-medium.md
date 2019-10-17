@@ -7,7 +7,7 @@
 | 1 | 2 | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers) | \*\*\*\*\*\* |
 | 2 | 146 | [LRU Cache    ](https://leetcode.com/problems/lru-cache) | \*\*\*\*\*\* |
 | 3 | 5 | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring) | \*\*\*\*\*\* |
-| 4 | 200 | [Number of Islands    ](https://leetcode.com/problems/number-of-islands) | \*\*\*\*\* |
+| 4 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands) | \*\*\*\*\* |
 | 5 | 3 | [Longest Substring Without Repeating Characters    ](https://leetcode.com/problems/longest-substring-without-repeating-characters) | \*\*\*\*\* |
 | 6 | 15 | [3Sum    ](https://leetcode.com/problems/3sum) | \*\*\*\*\* |
 | 7 | 238 | [Product of Array Except Self    ](https://leetcode.com/problems/product-of-array-except-self) | \*\*\*\* |
@@ -525,11 +525,37 @@ Output: "bb"
 {% endtab %}
 {% endtabs %}
 
-## \#. Xxxxxx Yyyyy
+## [4. Number of Islands](https://leetcode.com/problems/number-of-islands)
 
 {% tabs %}
 {% tab title="Question" %}
-...
+**200. Number of Islands**
+
+Given a 2d grid map of `'1'`s \(land\) and `'0'`s \(water\), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+**Example 1:**
+
+```text
+Input:
+11110
+11010
+11000
+00000
+
+Output: 1
+```
+
+**Example 2:**
+
+```text
+Input:
+11000
+11000
+00100
+00011
+
+Output: 3
+```
 {% endtab %}
 
 {% tab title="Video" %}
