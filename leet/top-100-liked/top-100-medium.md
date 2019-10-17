@@ -518,9 +518,161 @@ Output: "bb"
 4. [http://manacher-viz.s3-website-us-east-1.amazonaws.com/\#/](http://manacher-viz.s3-website-us-east-1.amazonaws.com/#/)
 {% endtab %}
 
-{% tab title="Code" %}
+{% tab title="Sol: \[EASY\]" %}
 ```javascript
-....
+/*
+Using: 'Expand Around Center' approach [ JAG ]
+
+// This is better for interview
+
+// Time complexity : O(n^2) // Space complexity : O(1)
+*/
+function longestPalindrome(s) {
+  if (s === null || s.length < 1) return "";
+  let startIndex = 0;
+  let endIndex = 0;
+
+  let maxPalin = { length: 0 };
+
+  for (let i = 0; i < s.length; i++) {
+    let oddPalind = expandAroundCenter(s, i, i);
+    let evenPalind = expandAroundCenter(s, i, i + 1);
+
+    // currPalin: max(oddPalindLen, evenPalindLen)
+    let currPalin =
+      oddPalind.length > evenPalind.length ? oddPalind : evenPalind;
+
+    // update: maxPalin
+    maxPalin = currPalin.length > maxPalin.length ? currPalin : maxPalin;
+  }
+  return s.slice(maxPalin.start, maxPalin.end + 1);
+}
+
+function expandAroundCenter(s, left, right) {
+  while (s[left] && s[right] && s[left] === s[right]) {
+    left--;
+    right++;
+  }
+
+  const start = left + 1;
+  const end = right - 1;
+  const length = end - start <= 0 ? 0 : end - start + 1;
+  return { start, end, length };
+}
+```
+{% endtab %}
+
+{% tab title="Sol: \[BEST\]" %}
+```javascript
+/*
+Using: Manacher algorithm  
+// (This is NOT better for interview, becoz nobody get this solution in 40min interview)
+
+// Time complexity : O(n) // Space complexity : O(n)
+*/
+function longestPalindrome(s) {
+  let T = "$#" + s.split("").join("#") + "#@";
+  // palindrome: for eachChar 
+  let P = Array(T.length).fill(0);
+  let center = 0;
+  let right = 0;
+
+  for (let i = 0; i < T.length; i++) {
+    let mirr = 2 * center - i;
+
+    // 1. if: 'currIndex' is within the 'rightBoundary'
+    // then: try to use the palidrome 'mirror' value
+    if (i < right) P[i] = Math.min(right - i, P[mirr]);
+
+    // 2. expand:
+    while (T[i + (1 + P[i])] === T[i - (1 + P[i])]) P[i]++;
+
+    // 3. Is 'currPalindromeRightBoundary' is greater than 'rightBoundary'
+    // then: update the 'center' and 'rightBoundary'
+    if (i + P[i] > right) {
+      center = i;
+      right = i + P[i];
+    }
+  }
+
+  let maxlength = 0; // length of longest palindromic substring
+  let maxCenter = 0; // center of longest palindromic substring
+  for (let i = 0; i < P.length; i++) {
+    if (P[i] > maxlength) {
+      maxlength = P[i];
+      maxCenter = i;
+    }
+  }
+
+  return s.substring(
+    (maxCenter - 1 - maxlength) / 2,
+    (maxCenter - 1 + maxlength) / 2
+  );
+}
+```
+{% endtab %}
+
+{% tab title="Sol: \[dp\]" %}
+```javascript
+/*
+ Use: dpTable -to store the previous computations
+ // (This is NOT better for interview, becoz it is complex and consider 'expandAroundCenter' approach with same timeComplexity)
+
+ // Time complexity : O(n^2) // Space complexity : O(n^2)
+*/
+function lps(s) {
+  let n = s.length;
+  let palindromeBeginsAt = 0; //index where the longest dpTable begins
+  let maxSubStrLenSoFar = 1; //length of the longest dpTable
+  let dpTable = []; //boolean table to store dpTable truth
+
+  // Populate: 'dpTable' // In this process, also update the max(maxSubStrLenSoFar)
+
+  // 1. Base Case: ‘1 char substring’ - is always ‘palindrome’
+  for (let i = 0; i < n; i++) {
+    dpTable[i][i] = true;
+  }
+
+  // 2. Base Case: if: '2 char substring' - Is 'first and last char same' - then it is a 'dpTable'
+  for (let i = 0; i < n - 1; i++) {
+    const first = s[i];
+    const last = s[i + 1];
+    if (first === last) {
+      dpTable[i][i + 1] = true;
+      palindromeBeginsAt = i;
+      maxSubStrLenSoFar = 2;
+    }
+  }
+
+  // 3. if: ‘3+ char substring’
+  // - [3.1] Is ‘first and last char same’ and [3.2] Is ‘middleSubStr palidrome (check: fromAlreadyComputed-DP)’
+  // - then it is a ‘palindrome’
+
+  // for: (3 to n) - to find the comibinations of substr
+  for (let currSubStrLen = 3; currSubStrLen <= n; currSubStrLen++) {
+
+    // populate: 'substr' for 'currSubStr'
+    const substrEndIndex = n - currSubStrLen + 1;
+    for (let i = 0; i < substrEndIndex; i++) {
+      let firstCharIndex = i;
+      let lastCharIndex = i + currSubStrLen - 1;
+
+      // 3.1 Is 'first' & 'last' char of currSubStr 'Same' ?
+      let isFirstAndLastCharSame = s[firstCharIndex] === s[lastCharIndex];
+      // 3.2 Is ‘middleSubStr palidrome (check: fromAlreadyComputed-dpTable)
+      let isMiddleSubStrPalindrome = dpTable[firstCharIndex + 1][lastCharIndex - 1];
+
+      if (isFirstAndLastCharSame && isMiddleSubStrPalindrome) {
+        // store: currSubStr is Palindrome
+        dpTable[firstCharIndex][lastCharIndex] = true;
+        palindromeBeginsAt = firstCharIndex;
+        maxSubStrLenSoFar = currSubStrLen;
+      }
+    }
+  }
+  return s.slice(palindromeBeginsAt, maxSubStrLenSoFar + palindromeBeginsAt);
+}
+
 ```
 {% endtab %}
 {% endtabs %}
@@ -559,12 +711,80 @@ Output: 3
 {% endtab %}
 
 {% tab title="Video" %}
-
+{% embed url="https://www.youtube.com/watch?v=CGMNePwovA0" %}
 {% endtab %}
 
 {% tab title="Code" %}
 ```javascript
-....
+/*
+ Using: DFS
+
+ Linear scan the 2d grid map, 
+  - if a node contains a '1', then it is a root node that triggers a Depth First Search. 
+  - During DFS, every visited node should be set as '0' to mark as visited node. 
+  - Count the number of root nodes that trigger DFS, 
+      - this number would be the number of islands since each DFS starting at some root identifies an island.
+
+Steps:
+  // 1. found a land // currNode is '1'
+  // 2. try 'DFS' to see whether we can acquire nearby land
+        // 2.1 (not-acquired) land found
+            - acquire it:  by marking currNode as '0' (visited/acquired/markItUnAvailableForNextTime)
+        // 2.2 go all direction and try 'DFS' to see whether we can acquire nearby land
+
+ // Time complexity : O(n^2) // Space complexity : O(n^2)
+
+ 
+ Time complexity : O(M×N) where M is the number of rows and N is the number of columns.
+ Space complexity : worst case O(M×N) in case that the grid map is filled with lands where DFS goes by NM×N deep.
+*/
+
+// [JAG]
+function dfs(grid, r, c) {
+  // base-case:
+  // currNode: shouldBeWithinBoundary & shouldNotBeZero
+  if (!grid[r] || !grid[r][c] || grid[r][c] === "0") return;
+
+  // 2.1 (not-acquired) land found
+  // acquire it:  by marking currNode as '0' (visited/acquired/markItUnAvailableForNextTime)
+  grid[r][c] = "0";
+
+  // 2.2 go all direction and try 'DFS' to see whether we can acquire nearby land
+  dfs(grid, r - 1, c);
+  dfs(grid, r + 1, c);
+  dfs(grid, r, c - 1);
+  dfs(grid, r, c + 1);
+}
+
+function numIslands(grid) {
+  if (!grid || !grid.length) return 0;
+
+  let count = 0;
+  const nr = grid.length; // noOfRow
+  const nc = grid[0].length; // noOfCols
+
+  for (let r = 0; r < nr; r++) {
+    for (let c = 0; c < nc; c++) {
+      if (grid[r][c] === "1") {
+        // 1. found a land // currNode is '1'
+        count = count + 1;
+
+        // 2. try 'DFS' to see whether we can acquire nearby land
+        dfs(grid, r, c);
+      }
+    }
+  }
+  return count;
+}
+
+const grid1 = [
+  ["1", "1", "1", "1", "0"],
+  ["1", "1", "0", "1", "0"],
+  ["1", "1", "0", "0", "0"],
+  ["0", "0", "0", "0", "0"]
+];
+console.log(numIslands(grid1)); // 1
+
 ```
 {% endtab %}
 {% endtabs %}
