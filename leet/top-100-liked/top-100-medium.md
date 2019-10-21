@@ -8,8 +8,8 @@
 | 2 | 146 | [LRU Cache    ](https://leetcode.com/problems/lru-cache) | \*\*\*\*\*\* |
 | 3 | 5 | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring) | \*\*\*\*\*\* |
 | 4 | 200 | [Number of Islands](https://leetcode.com/problems/number-of-islands) | \*\*\*\*\* |
-| 5 | 3 | [Longest Substring Without Repeating Characters    ](https://leetcode.com/problems/longest-substring-without-repeating-characters) | \*\*\*\*\* |
-| 6 | 15 | [3Sum    ](https://leetcode.com/problems/3sum) | \*\*\*\*\* |
+| 5 | 3 | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters) | \*\*\*\*\* |
+| 6 | 15 | [3Sum](https://leetcode.com/problems/3sum) | \*\*\*\*\* |
 | 7 | 238 | [Product of Array Except Self    ](https://leetcode.com/problems/product-of-array-except-self) | \*\*\*\* |
 | 8 | 56 | [Merge Intervals    ](https://leetcode.com/problems/merge-intervals) | \*\*\*\* |
 | 9 | 33 | [Search in Rotated Sorted Array    ](https://leetcode.com/problems/search-in-rotated-sorted-array) | \*\*\*\* |
@@ -791,29 +791,157 @@ console.log(numIslands(grid1)); // 1
 
 
 
-## \#. Xxxxxx Yyyyy
+## [5. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters)
 
 {% tabs %}
 {% tab title="Question" %}
-...
+**3. Longest Substring Without Repeating Characters**
+
+Given a string, find the length of the **longest substring** without repeating characters.
+
+**Example 1:**
+
+```text
+Input: "abcabcbb"
+Output: 3 
+Explanation: The answer is "abc", with the length of 3. 
+```
+
+**Example 2:**
+
+```text
+Input: "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+```
+
+**Example 3:**
+
+```text
+Input: "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3. 
+             Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
+```
 {% endtab %}
 
 {% tab title="Video" %}
-
+* [https://www.youtube.com/watch?v=aIrbWbON63M](https://www.youtube.com/watch?v=aIrbWbON63M)
+* [https://www.youtube.com/watch?v=8ZlmgBcQzMM](https://www.youtube.com/watch?v=8ZlmgBcQzMM)
 {% endtab %}
 
 {% tab title="Code" %}
 ```javascript
-....
+/*
+Using 'Sliding Window' (Set and Two Pointer)
+
+// Time complexity : O(2n) = O(n) // In the worst case each character will be visited twice by i and j.
+// Space complexity : O(min(m, n))  // size of the charset 'm' or size of the string 'n' // whichever is minimum
+*/
+function lengthOfLongestSubstring(s) {
+  let maxSofar = 0;
+  const charSet = new Set();
+
+  // leftPtr & rightPtr
+  let l = 0,
+    r = 0;
+  while (l < s.length && r < s.length) {
+    const currChar = s[r];
+
+    if (!charSet.has(currChar)) {
+      // itemNotFoundInSet: consider 'currChar' as part of prevSubStr
+
+      // add: currChar in Set
+      charSet.add(currChar);
+
+      // eval: maxSubStrLen
+      const currSubStrLen = r - l + 1; // subStrlen = endIndex - startIndex + 1 // formula
+      maxSofar = Math.max(maxSofar, currSubStrLen);
+
+      // move 'rightPtr' to 'nextItem'
+      r++;
+    } else {
+      // itemFoundInSet: delete the leftPtrItem from Set
+      charSet.delete(s[l]);
+
+      // move 'leftPtr' to 'nextItem'
+      l++;
+    }
+  }
+  return maxSofar;
+}
+```
+{% endtab %}
+
+{% tab title="Sol2: \[BEST\]" %}
+```javascript
+
+/*
+Using 'Sliding Window (Improved)' (Map and Two Pointer) [BEST]
+
+// Time complexity : O(n) 
+// Space complexity : O(min(m, n))  // size of the charset 'm' or size of the string 'n' // whichever is minimum
+*/
+function lengthOfLongestSubstring(s) {
+  if (s.length == 0) return 0;
+  let maxSofar = 0;
+
+  // { eachChar: index }
+  const charMap = new Map();
+
+  // leftPtr & rightPtr
+  let l = 0,
+    r = 0;
+  while (r < s.length) {
+    const currChar = s[r];
+
+    if (charMap.has(currChar)) {
+      // itemFoundInSet: jump the 'leftPtr' to existingCharIndex and move 'leftPtr' to 'nextItem'
+      // whichever is greater consider that as 'leftPtr'
+      l = Math.max(l, charMap.get(currChar) + 1);
+    }
+
+    // add: currChar in Set
+    charMap.set(currChar, r);
+
+    // eval: maxSubStrLen
+    const currSubStrLen = r - l + 1; // subStrlen = endIndex - startIndex + 1 // formula
+    maxSofar = Math.max(maxSofar, currSubStrLen);
+
+    // move 'rightPtr' to 'nextItem'
+    r++;
+  }
+
+  return maxSofar;
+}
+
 ```
 {% endtab %}
 {% endtabs %}
 
-## \#. Xxxxxx Yyyyy
+## [6. 3Sum](https://leetcode.com/problems/3sum)
 
 {% tabs %}
 {% tab title="Question" %}
-...
+**15. 3Sum**
+
+Given an array `nums` of _n_ integers, are there elements _a_, _b_, _c_ in `nums` such that _a_ + _b_ + _c_ = 0? Find all unique triplets in the array which gives the sum of zero.
+
+**Note:**
+
+The solution set must not contain duplicate triplets.
+
+**Example:**
+
+```text
+Given array nums = [-1, 0, 1, 2, -1, -4],
+
+A solution set is:
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
+```
 {% endtab %}
 
 {% tab title="Video" %}
