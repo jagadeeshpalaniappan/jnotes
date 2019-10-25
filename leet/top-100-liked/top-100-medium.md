@@ -945,7 +945,9 @@ A solution set is:
 {% endtab %}
 
 {% tab title="Video" %}
-
+* [https://www.youtube.com/watch?v=jXZDUdHRbhY](https://www.youtube.com/watch?v=jXZDUdHRbhY)
+* [https://www.youtube.com/watch?v=X5UhF3xS5Dk](https://www.youtube.com/watch?v=X5UhF3xS5Dk)
+* [https://www.youtube.com/watch?v=-AMHUdZc9ss](https://www.youtube.com/watch?v=-AMHUdZc9ss)
 {% endtab %}
 
 {% tab title="Code" %}
