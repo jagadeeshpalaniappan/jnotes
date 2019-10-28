@@ -12,7 +12,7 @@
 {% tab title="1" %}
 ### Business Criteria
 
-![](../../.gitbook/assets/image%20%28196%29.png)
+![](../../.gitbook/assets/image%20%28197%29.png)
 {% endtab %}
 
 {% tab title="2" %}
@@ -42,17 +42,17 @@ But
 
 ![](../../.gitbook/assets/image%20%2850%29.png)
 
-![](../../.gitbook/assets/image%20%28185%29.png)
+![](../../.gitbook/assets/image%20%28186%29.png)
 
 ![](../../.gitbook/assets/image%20%28116%29.png)
 {% endtab %}
 
 {% tab title="5 \(saga\)" %}
-![](../../.gitbook/assets/image%20%28208%29.png)
+![](../../.gitbook/assets/image%20%28209%29.png)
 
 ![](../../.gitbook/assets/image%20%2854%29.png)
 
-![](../../.gitbook/assets/image%20%28209%29.png)
+![](../../.gitbook/assets/image%20%28210%29.png)
 
 ![](../../.gitbook/assets/image%20%2842%29.png)
 {% endtab %}
@@ -60,7 +60,7 @@ But
 {% tab title="6" %}
 ![](../../.gitbook/assets/image%20%28111%29.png)
 
-![](../../.gitbook/assets/image%20%28191%29.png)
+![](../../.gitbook/assets/image%20%28192%29.png)
 
 ![](../../.gitbook/assets/image%20%2873%29.png)
 {% endtab %}
@@ -68,7 +68,7 @@ But
 {% tab title="7" %}
 ![](../../.gitbook/assets/image%20%28149%29.png)
 
-![](../../.gitbook/assets/image%20%28169%29.png)
+![](../../.gitbook/assets/image%20%28170%29.png)
 
 ![](../../.gitbook/assets/image%20%2859%29.png)
 {% endtab %}
@@ -78,7 +78,7 @@ But
 {% endtab %}
 
 {% tab title="9" %}
-![](../../.gitbook/assets/image%20%28175%29.png)
+![](../../.gitbook/assets/image%20%28176%29.png)
 
 ![](../../.gitbook/assets/image%20%2858%29.png)
 
@@ -144,7 +144,7 @@ But
 
 ![](../../.gitbook/assets/image%20%28134%29.png)
 
-![](../../.gitbook/assets/image%20%28172%29.png)
+![](../../.gitbook/assets/image%20%28173%29.png)
 
 
 
@@ -158,7 +158,7 @@ But
 
 ![](../../.gitbook/assets/image%20%28127%29.png)
 
-![](../../.gitbook/assets/image%20%28195%29.png)
+![](../../.gitbook/assets/image%20%28196%29.png)
 {% endtab %}
 
 {% tab title="4" %}
@@ -195,7 +195,7 @@ For example, \(Here we may have Data Inconsistency
 {% endtab %}
 
 {% tab title="9" %}
-![](../../.gitbook/assets/image%20%28207%29.png)
+![](../../.gitbook/assets/image%20%28208%29.png)
 {% endtab %}
 {% endtabs %}
 
@@ -223,13 +223,13 @@ ss
 
 ![](../../.gitbook/assets/image%20%28119%29.png)
 
-![](../../.gitbook/assets/image%20%28176%29.png)
+![](../../.gitbook/assets/image%20%28177%29.png)
 
 ![](../../.gitbook/assets/image%20%28126%29.png)
 
 ![](../../.gitbook/assets/image%20%2867%29.png)
 
-![](../../.gitbook/assets/image%20%28180%29.png)
+![](../../.gitbook/assets/image%20%28181%29.png)
 
 ![](../../.gitbook/assets/image%20%28142%29.png)
 
@@ -237,31 +237,31 @@ ss
 
 ![](../../.gitbook/assets/image%20%2861%29.png)
 
-![](../../.gitbook/assets/image%20%28189%29.png)
+![](../../.gitbook/assets/image%20%28190%29.png)
 {% endtab %}
 
 {% tab title="3" %}
-![](../../.gitbook/assets/image%20%28173%29.png)
+![](../../.gitbook/assets/image%20%28174%29.png)
 
-![](../../.gitbook/assets/image%20%28184%29.png)
+![](../../.gitbook/assets/image%20%28185%29.png)
 
-![](../../.gitbook/assets/image%20%28188%29.png)
-
-![](../../.gitbook/assets/image%20%28182%29.png)
+![](../../.gitbook/assets/image%20%28189%29.png)
 
 ![](../../.gitbook/assets/image%20%28183%29.png)
+
+![](../../.gitbook/assets/image%20%28184%29.png)
 
 ![](../../.gitbook/assets/image%20%2895%29.png)
 
 ![](../../.gitbook/assets/image%20%2875%29.png)
 
-![](../../.gitbook/assets/image%20%28203%29.png)
+![](../../.gitbook/assets/image%20%28204%29.png)
 
 ![](../../.gitbook/assets/image%20%2834%29.png)
 
 ![](../../.gitbook/assets/image%20%2812%29.png)
 
-![](../../.gitbook/assets/image%20%28186%29.png)
+![](../../.gitbook/assets/image%20%28187%29.png)
 
 ![](../../.gitbook/assets/image%20%28153%29.png)
 {% endtab %}
@@ -269,13 +269,13 @@ ss
 {% tab title="4" %}
 ![](../../.gitbook/assets/image%20%2830%29.png)
 
-![](../../.gitbook/assets/image%20%28164%29.png)
+![](../../.gitbook/assets/image%20%28165%29.png)
 
-![](../../.gitbook/assets/image%20%28206%29.png)
+![](../../.gitbook/assets/image%20%28207%29.png)
 {% endtab %}
 
 {% tab title="5" %}
-![](../../.gitbook/assets/image%20%28178%29.png)
+![](../../.gitbook/assets/image%20%28179%29.png)
 
 ![](../../.gitbook/assets/image%20%2874%29.png)
 
@@ -311,7 +311,7 @@ ss
 {% tab title="2" %}
 ![](../../.gitbook/assets/image%20%283%29.png)
 
-![](../../.gitbook/assets/image%20%28193%29.png)
+![](../../.gitbook/assets/image%20%28194%29.png)
 {% endtab %}
 
 {% tab title="3" %}

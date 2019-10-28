@@ -38,7 +38,7 @@
 {% endtab %}
 
 {% tab title="4" %}
-![](../../.gitbook/assets/image%20%28199%29.png)
+![](../../.gitbook/assets/image%20%28200%29.png)
 {% endtab %}
 
 {% tab title="5" %}
@@ -46,7 +46,7 @@
 {% endtab %}
 
 {% tab title="6" %}
-![](../../.gitbook/assets/image%20%28165%29.png)
+![](../../.gitbook/assets/image%20%28166%29.png)
 {% endtab %}
 
 {% tab title="7" %}

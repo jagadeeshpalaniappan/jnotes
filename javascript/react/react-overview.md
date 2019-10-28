@@ -4,7 +4,7 @@
 
 {% tabs %}
 {% tab title="Old" %}
-![](../../.gitbook/assets/image%20%28187%29.png)
+![](../../.gitbook/assets/image%20%28188%29.png)
 {% endtab %}
 
 {% tab title="Old vs New LifeCycle" %}
@@ -59,7 +59,7 @@
 
 2.component**WillReceieveProps** ---&gt; **get**Derived**State**FromProps
 
-![since newFn  is static &apos;this&apos; is not accessible \(i.e. this.state.xxxx\)](../../.gitbook/assets/image%20%28168%29.png)
+![since newFn  is static &apos;this&apos; is not accessible \(i.e. this.state.xxxx\)](../../.gitbook/assets/image%20%28169%29.png)
 
 3.component**WillUpdate** ---&gt; **getSnapshot**BeforeUpdate
 

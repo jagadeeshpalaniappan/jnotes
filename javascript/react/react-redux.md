@@ -12,7 +12,7 @@
 {% endtab %}
 
 {% tab title="3" %}
-![](../../.gitbook/assets/image%20%28202%29.png)
+![](../../.gitbook/assets/image%20%28203%29.png)
 {% endtab %}
 
 {% tab title="4" %}
