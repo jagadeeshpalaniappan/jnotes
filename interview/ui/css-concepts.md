@@ -1,8 +1,10 @@
 # CSS Concepts
 
-## CSS Preprocessors \(SASS/LESS\)
-
-## CSS Organization Methodologies \(BEM, OOCSS, SMACSS\)
 
 
+1. **CSS Organization Methodologies**
+   * OOCSS, SMACSS, BEM
+   * Functional CSS
+   * CSS Modules
+2. **CSS Preprocessors \(SASS/LESS\)**
 
