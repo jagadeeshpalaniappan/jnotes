@@ -1,13 +1,13 @@
 # About Me:
 
-* I work as a **Senior Software Engineer** in GE Digital
-* Its been around **7 years**, I have been working as a **Application Developer**
-* In this 7 years, I have got many **Wonderful Opportunities**,
+* I work as a **Staff Software Engineer** in GE Digital
+* Its been around **8 years**, I have been working as a **Web Application Developer**
+* In this 8 years, I have got many **Wonderful Opportunities**,
   * to **Learn** and **Work** with End –to- End web applications
   * When I say, End-to-End,
 
     ```javascript
-      - developing application from scratch (brand new application)
+      - starting from creating application from scratch (brand new application)
       - developing **'Front-End'** application
       - developing **'Back-End'** application
       - building & deploying applications
@@ -97,9 +97,12 @@ Hope you got that...
 * In my free time,
 
 ```javascript
-- TODO: ```I also develop some useful applications and hobby projects ```
-- I also **volunteer** and take 'free classes' to college students (to give back my knowledge to society)
+- TODO: ```I also develop some useful applications and hobby projects
 ```
+
+* I also **volunteer** and take 'free classes' to college students \(to give back my knowledge to society\)
+
+  \`\`\`
 
 All these activities motivates me to learn and keep up-to-date with latest technologies.
 
