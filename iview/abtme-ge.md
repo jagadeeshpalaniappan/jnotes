@@ -2,10 +2,10 @@
 
 - I’m a **Staff Software Engineer** working in GE - Digital
 
-- I’m a Full-Stack developer and UI-Enthusiastic,
+- I’m a Full-Stack developer and UI-Enthusiastic person
 - I have more than 8 years of experience in developing highly scalable web applications. 
 
-- In this 8+ years, I have got many **Wonderful Opportunities**, to **Learn** and **Work** with End –to- End web applications.
+- In this 8+ years time, I have got many **Wonderful Opportunities**, to **Learn** and **Work** with End –to- End web applications.
 - I have developed applications starting from scratch designing, developing (Front-End & Back-End) application, building and deploying them on cloud. 
 
 - Worked extensively in cloud based SaaS web applications.
@@ -15,16 +15,17 @@
 - Now, I am primarly focusing only on JavaScript
 
 - Because, I’m more passionate and enjoy working with Front-End web technologies 
-   - developing 'Single Page Web Application'
-   - developing 'Components based' Web Application
+   - developing **'Single Page Web Application'**
+   - developing **'Components based'** Web Application
    - when i say 'Components based' developing 'Fully Re-Usable' custom 'Web Components' using Polymer, React and Angular
    
-   - developing 'Micro-Frontend' application // Like 'MicroServices' in backend  
+   - developing **'Micro-Frontend'** application // Like 'MicroServices' in backend  
     - we can have 'Micro-Frontend' architecture in frontend 
     - instead of building one big Monlethic Front-End application, 
     - we can split that into multiple microFrontend applications 
-    - This can help us horizontallyScale, teamsCan: WorkIndependenlty, DeployIndependenlty, ChooseTechnologyIndependenlty
-
+    - This can help us horizontallyScale, 
+      - scale: horizontallyScale, independenltyScale
+      - teamsCan: WorkIndependenlty, DeployIndependenlty, ChooseTechnologyIndependenlty  
 
 
 
