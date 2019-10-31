@@ -56,7 +56,6 @@
   * [Frequently Used Fns](javascript/concepts/frequently-used-fns/README.md)
     * [.map \[TODO\]](javascript/concepts/frequently-used-fns/.map-todo.md)
     * [.reduce \[ETODO\]](javascript/concepts/frequently-used-fns/.reduce.md)
-  * [Performance](javascript/concepts/performance.md)
   * [How to?](javascript/concepts/how-to/README.md)
     * [Debounce vs Throttle](javascript/concepts/how-to/7.-debounce-vs-throttle.md)
     * [Infinite Scroll \[TODO\]](javascript/concepts/how-to/8.-infinite-scroll.md)
@@ -150,4 +149,8 @@
   * [1. Top 100 - EASY](leet/top-100-liked/top-100-easy.md)
   * [2. Top 100 - MEDIUM](leet/top-100-liked/top-100-medium.md)
   * [3. Top 100 - HARD](leet/top-100-liked/top-100-hard.md)
+
+## TODO
+
+* [TODO](todo/todo.md)
 
