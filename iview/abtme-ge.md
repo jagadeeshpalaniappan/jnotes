@@ -1,47 +1,54 @@
 # About Me:
 
-* I work as a **Staff Software Engineer** in GE Digital
-* Its been around **8 years**, I have been working as a **Web Application Developer**
-* In this 8 years, I have got many **Wonderful Opportunities**,
-  * to **Learn** and **Work** with End –to- End web applications
-  * When I say, End-to-End,
+- I’m a **Staff Software Engineer** working in GE - Digital
 
-    ```javascript
-      - starting from creating application from scratch (brand new application)
-      - developing **'Front-End'** application
-      - developing **'Back-End'** application
-      - building & deploying applications
-          - (configuring Jenkins jobs)
-          - (deploying on Cloud based systems) // AWS / Predix (Cloudfoundry)
-          - (deploying on On-Premise systems) // UNIX boxes
-      - the complete work flow
-    ```
-* Yes! I am a **Full-Stack** developer
-  * I develop end-to-end web applications
-* My Primary Skill-Sets are both **'Front-End’** and **'Back-End’**
-* In terms of 'Front-End'
+- I’m a Full-Stack developer and UI-Enthusiastic,
+- I have more than 8 years of experience in developing highly scalable web applications. 
+
+- In this 8+ years, I have got many **Wonderful Opportunities**, to **Learn** and **Work** with End –to- End web applications.
+- I have developed applications starting from scratch designing, developing (Front-End & Back-End) application, building and deploying them on cloud. 
+
+- Worked extensively in cloud based SaaS web applications.
+
+- Yes, I’m a **Full-Stack** developer
+- I am primarly working with **JavaScript**, (I'm also a Java Developer) // Its been many years, i worked with Java 
+- Now, I am primarly focusing only on JavaScript
+
+- Because, I’m more passionate and enjoy working with Front-End web technologies 
+   - developing 'Single Page Web Application'
+   - developing 'Components based' Web Application
+   - when i say 'Components based' developing 'Fully Re-Usable' custom 'Web Components' using Polymer, React and Angular
+   
+   - developing 'Micro-Frontend' application // Like 'MicroServices' in backend  
+    - we can have 'Micro-Frontend' architecture in frontend 
+    - instead of building one big Monlethic Front-End application, 
+    - we can split that into multiple microFrontend applications 
+    - This can help us horizontallyScale, teamsCan: WorkIndependenlty, DeployIndependenlty, ChooseTechnologyIndependenlty
+
+
+
+
+* In terms of 'Back-End’ // I also has a secondary-skill,
 
 ```javascript
-- developing 'Single Page Application' (SPA) using 'Angular.js' and 'Angular' Framework
-- developing 'Fully Re-Usable' custom 'Web Components' using 'Polymer'
-- developing all this by keeping 'Responsive Web Design' (RWD) in mind
+- developing **'Node.js -Express'** based microservice back-end application
+- developing new REST API's endpoints & also consuming other application REST API's
+
+// - developing **'Java -Spring MVC / Spring Boot '** based back-end applications
+// - interacting with SQL & 'NoSQL' based databases - such as 'MongoDB', Oracle, MySQL,..
+
 ```
 
-* In terms of 'Back-End’
+Apart from my daily work, I always do some side projects, 
+- developing Web Apps / developing Mobile Apps
 
-```javascript
-- developing **'Node.js -Express'** based back-end application
-- developing **'Java -Spring MVC'** based back-end applications
-- developing **'Micro-Services'** in Cloud Foundry
-- interacting with SQL & 'NoSQL' based databases
-    - such as 'MongoDB', Oracle, MySQL,..
-- interacting with **REST API** and Web Services
-- Design Patterns (MVC, Singleton, Factory, Dependency Injection, IoC)
-- Hands-on-Experience Experience with Design and Developing Micro Apps based Architecture
-    - (One App Platform -which runs multiple Micro Apps)
-```
+- i recently created cool POCs to controlWebAppUsingVoice (using Alexa)
 
-Apart from my daily work, I always go out of the box and think, innovate new ideas, develop prototypes, POCs to solve real-time problems.
+
+
+
+
+------------------------------------------------------------------------------
 
 * In GE,
 
