@@ -5,7 +5,16 @@
 {% tabs %}
 {% tab title="" %}
 1. Optimize: **CRP** \(Critical Rendering Path\)
-2. Optimize: ‘**Event Loop**’ & ‘**Call Stack**’
+2. Optimize: **Code**
+   * Optimize: 'JavaScript Code' 
+     * // `doNotBlockMainThread` : // `useSmallIndividualAsyncTasks` // `useWebWorker`
+     * // `useDebounceOrThrottle` //`use:removeEventListener`
+     * // `useForLoopLengthCached` // `useMemoizationCacheFnResults`
+   * Optimize: 'DOM'
+     * // `lazyLoadLessWantedDomElems` 
+     * // `doBatchDomManipulation` //`useDocumentFragment`
+   * Optimize: 'HTTP Response'
+     * `cache` / `prefetch` / `loadOnDemandLessWanted`
 {% endtab %}
 
 {% tab title="1. Optimize: CRP" %}
@@ -78,55 +87,100 @@ KeyWords:
 \*\*\*\*
 {% endtab %}
 
-{% tab title="2. Optimize: ‘Event Loop’ & ‘Call Stack’" %}
-2. Optimize: ‘**Event Loop**’ & ‘**Call Stack**’
+{% tab title="2. Optimize: Code" %}
+#### 1. Optimize: 'JavaScript Code'
 
 ```javascript
-1. Optimize: 'JavaScript Code' 
-  1.1. Do not 'blockMainThread', this will 'freezeUserInteraction' // remember: javascript is 'singleThreaded'
-      - consider spliting 'longRunningSynchScripts' them into 'smallIndividualAsyncTasks' 
+1. Optimize: 'Event Loop & Call Stack'
+    - Do not 'blockMainThread', this will 'freezeUserInteraction' // remember: javascript is 'singleThreaded'
+    - consider spliting 'longRunningSynchScripts' them into 'smallIndividualAsyncTasks' 
       // remember: Keeping `longRunningSynchScripts` in asynchronous tasks also 'blockMainThread'
-      - or ask `WebWorker` to run the script parallelly
-
-  1.2. For… Loop (Length Caching)
-  1.3. Memoize Fn (Cache the fn results)
-
-/* ------------------------------------------------------------------------ */
+    - or ask `WebWorker` to run the script parallelly
 
 2. Optimize: 'Events'
      - Use: Debounce & Throttle 
+     - Use: removeEventListener when we remove subscribed elements from DOM 
 
-/* ------------------------------------------------------------------------ */
-
-3. Optimize: 'DOM elements'
- 3.1. LazyLoad (less wanted items) (based on user viewport) // use: IntersectionObserver
- 3.2. use: 'documentFragment' while 'addOrRemoveMultipleItems'
-         - consider append all the newChildElements to 'documentFragment' (dummyParentNode) // instead of adding each item to realParentNode
-           and then 'appendChild' or add that dummyParentNode only once to the 'parentElement'
-           // remember: 'appendChild' to realDomElem is expensive // runs CRP
-
-/* ------------------------------------------------------------------------ */
-
-4. Optimize: 'HTTP Response'
-    - Cache: HTTP response
-    - PreFetch: (most wanted) HTTP response
-    - Load `On-Demand` (less wanted)
+3. Use For… Loop (with Length Cached)
+4. Use Memoize Fn (Cache the fn results)
 
 
-/* ------------------------------------------------------------------------ */
-KeyWords:
+/* ------------------------------- KeyWords: -------------------------------- */
 # 'blockMainThread': longRunningSynchScripts - blocks the main thread
 # 'longRunningSynchScripts': Long Running Synchronous Scripts
 # 'freezeUserInteraction': blocking the CRP 
-# 'documentFragment' is a dummyNode (Pseudo DOM Node or virtualElement) // no physical element created
+
 ```
 
-**Intersection Observer API:**
+\*\*\*\*
+
+#### **2. Optimize: DOM Manipulation**
 
 ```javascript
+1. LazyLoad [less-wanted items]
+    - when we have huge elements
+    - consider first rendering elements which are in user viewport (and upcoming viewport)
+    - then lazily load/render other elements (on-demand) when those element reaches close to the viewport
+    // use: Intersection Observer API:
+    
+/* ----------------- Intersection Observer API: (example-code): -------------------- */
 let options = { root: document.querySelector('#item1'), rootMargin: '0px', threshold: 1.0 }
 let observer = new IntersectionObserver(callback, options);
 ```
+
+```javascript
+2. Optimize: DOM Manipulation
+    use: 'documentFragment' while 'addOrRemoveMultipleItems'
+    - consider append all the newChildElements to 'documentFragment' (dummyParentNode) // instead of adding each item to realParentNode
+    - and then 'appendChild' or add that dummyParentNode only once to the 'parentElement'
+    // remember: 'appendChild' to realDomElem is expensive // runs CRP
+
+
+/* ------------------------------- KeyWords: -------------------------------- */
+# 'documentFragment' is a dummyNode (Pseudo DOM Node or virtualElement) // no physical element created
+
+
+/* ----------------- createDocumentFragment (example-code): -------------------- */
+/* html: <ul id="list"></ul> */
+// ## BAD apporach: ##
+var listNode = document.querySelector('#list'); 
+// Create 1000 list items, add to realDomNode
+for(let i = 0; i < 1000; i++) { 
+	var li = document.createElement("li"); li.innerText = "ListItem: " + i;
+	listNode.appendChild(li); // 'render' happens multipleTimes (forEach nodeAddition) 
+	// 'appendChild' to realDomNode is expensive operation
+}
+
+// ## GOOD apporach: ##
+// create a docFragment 
+var docFrag = document.createDocumentFragment(); // dummyVirtualNode
+// Create 1000 list items, add to fragment
+for(let i = 0; i < 1000; i++) { 
+	var li = document.createElement("li"); li.innerText = "ListItem: " + i;
+	docFrag.appendChild(li);
+}
+// BulkAdd: add all listItems at once (to the realDOM)
+document.querySelector('#list').appendChild(docFrag); // 'render' happens only once
+
+```
+
+
+
+#### **3.**Optimize: 'HTTP Response'
+
+```javascript
+- Cache: HTTP response
+- PreFetch: (most wanted) HTTP response
+- Load `On-Demand` (less wanted) // LazyLoad
+```
+{% endtab %}
+
+{% tab title="3. Memory Leak" %}
+
+
+{% embed url="https://www.lambdatest.com/blog/eradicating-memory-leaks-in-javascript/" %}
+
+{% embed url="https://dev.to/gc\_psk/debugging-memory-leaks-in-angular-4m2o" %}
 {% endtab %}
 {% endtabs %}
 
