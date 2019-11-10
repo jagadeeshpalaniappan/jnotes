@@ -32,6 +32,7 @@
   * [3.JavaScript Scope](javascript/concepts/3.scope/README.md)
     * [LexicalScope vs Closure Scope](javascript/concepts/3.scope/lexicalscope.md)
     * [Closure Scope \(More Detailed\)](javascript/concepts/3.scope/3.md)
+  * [Array Functions](javascript/concepts/array-functions.md)
   * [4. Function](javascript/concepts/hoisting/README.md)
     * [Function vs Object vs Array](javascript/concepts/hoisting/object-vs-function-vs-array.md)
     * ['new' keyword](javascript/concepts/hoisting/new-keyword.md)

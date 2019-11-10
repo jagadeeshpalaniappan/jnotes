@@ -1,6 +1,29 @@
 # Web Security
 
 {% tabs %}
+{% tab title="" %}
+```javascript
+Cross Site (Attack)
+ - XSS (Cross Site Scripting)
+   - Injecting hackers JavaScript code part of the HTML
+   - textInput userid ==> "'myuser' or 1=1"
+ - CSRF (Cross Site Request Forgery)
+   - If abc.com 'loggedInUser' hits some hacker.com URL in different tab, hacker.com appln can read all the cookies of the user browser and can make legitimate request to abc.com without letting the user know
+     // soln: backend sends unique csrfToken to client for each request, then backend expects the csrfToken
+     // - if frontend not sending those token, then that is not an legitimate request 
+
+CORS (Cross-Origin Resource Sharing):
+ - soln: use this req.header `Access-Control-Allow-Origin: http://siteA.com`
+ 
+ SQL Injection:
+  - Injecting hackers SQL statement part of the valid SQL statement
+  - textInput userid ==> "'myuser' or 1=1"
+  - SELECT userid, name FROM users WHERE userid = 'myuser' or 1=1;
+  
+
+```
+{% endtab %}
+
 {% tab title="First Tab" %}
 ```text
 Clickjacking (UI redressing)
@@ -78,6 +101,19 @@ Want to track your progress and have a more personalized learning experience? (I
 ## 2. Cross-Site Request Forgery **\(**_CSRF\)_
 
 {% tabs %}
+{% tab title="" %}
+
+
+```text
+CSRF (Cross Site Request Forgery)
+   - If user is authenticated and logged in to abc.com, The abc.com authtoken or JSESSIONID is stored on Cookie
+   - If the 'loggedInUser' hits some hacker.com URL, hacker.com appln can read all the cookies of the user and can make legitimate request to abc.com without letting the user know
+     (the URL can be recieved via email/sms/...)
+     // soln: backend sends unique csrfToken to client for each request, then backend expects the csrfToken
+     // - if frontend not sending those token, then that is not an legitimate request 
+```
+{% endtab %}
+
 {% tab title="First Tab" %}
 {% embed url="https://www.youtube.com/watch?v=eWEgUcHPle0" %}
 {% endtab %}
