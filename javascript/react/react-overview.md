@@ -4,11 +4,11 @@
 
 {% tabs %}
 {% tab title="Old" %}
-![](../../.gitbook/assets/image%20%28188%29.png)
+![](../../.gitbook/assets/image%20%28191%29.png)
 {% endtab %}
 
 {% tab title="Old vs New LifeCycle" %}
-![](../../.gitbook/assets/image%20%2836%29.png)
+![](../../.gitbook/assets/image%20%2837%29.png)
 
 ![](../../.gitbook/assets/image%20%2821%29.png)
 
@@ -59,14 +59,14 @@
 
 2.component**WillReceieveProps** ---&gt; **get**Derived**State**FromProps
 
-![since newFn  is static &apos;this&apos; is not accessible \(i.e. this.state.xxxx\)](../../.gitbook/assets/image%20%28169%29.png)
+![since newFn  is static &apos;this&apos; is not accessible \(i.e. this.state.xxxx\)](../../.gitbook/assets/image%20%28172%29.png)
 
 3.component**WillUpdate** ---&gt; **getSnapshot**BeforeUpdate
 
 * whatever **getSnapshotBeforeUpdate** fn returns 
 * we can get that `snapshot` value in **componentDidUpdate** fn as a 3rd arg
 
-![](../../.gitbook/assets/image%20%2846%29.png)
+![](../../.gitbook/assets/image%20%2847%29.png)
 {% endtab %}
 {% endtabs %}
 
@@ -76,11 +76,11 @@
 
 {% tabs %}
 {% tab title="ES6+ \(class\)" %}
-![](../../.gitbook/assets/image%20%28105%29.png)
+![](../../.gitbook/assets/image%20%28107%29.png)
 {% endtab %}
 
 {% tab title="Binding \'this\'" %}
-![](../../.gitbook/assets/image%20%2855%29.png)
+![](../../.gitbook/assets/image%20%2856%29.png)
 {% endtab %}
 {% endtabs %}
 

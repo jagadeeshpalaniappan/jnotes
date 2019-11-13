@@ -32,7 +32,7 @@
 6. New data structures like Map and Set
 ```
 
-![](../../../.gitbook/assets/image%20%2863%29.png)
+![](../../../.gitbook/assets/image%20%2865%29.png)
 
 ## JavaScript History
 

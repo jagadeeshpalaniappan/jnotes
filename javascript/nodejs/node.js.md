@@ -23,7 +23,7 @@ JavaScript now has the capability to do things that other scripting languages li
 
 ## What is JavaScript Runtime Environment?
 
-![If you know Java, here&#x2019;s a little analogy.](../../.gitbook/assets/image%20%28147%29.png)
+![If you know Java, here&#x2019;s a little analogy.](../../.gitbook/assets/image%20%28150%29.png)
 
 
 
@@ -46,7 +46,7 @@ Following are some of the important features that make Node.js the first choice 
 Node.js = V8-Engine + Libuv(Asynchronous IO) + Non-Blocking IO + Node-Core (C++ Library) + C++ Wrappers (.js files) & JavaScript Utility Function (.js files)
 ```
 
-![](../../.gitbook/assets/image%20%2868%29.png)
+![](../../.gitbook/assets/image%20%2870%29.png)
 
 
 
